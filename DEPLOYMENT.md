@@ -33,6 +33,15 @@ Create this file to override settings for your specific environment. It is **not
 
 3. Open `exam.html` in your browser at `http://localhost:8000`
 
+### Important: Configuration File Serving
+
+The FastAPI backend serves configuration files directly from the project root:
+
+- `config.js` is served at `http://localhost:8000/config.js`
+- `config.local.js` is served at `http://localhost:8000/config.local.js` (optional, with graceful fallback)
+
+The HTML automatically loads these files from these routes. Both files must be in the project root directory alongside `exam.html`.
+
 ### Production Deployment
 
 1. **Create `config.local.js`** on your production server:
@@ -136,6 +145,16 @@ If `config.local.js` is not found, the application uses defaults with a console 
 1. Verify `config.local.js` exists in the same directory as `exam.html`
 2. Check browser cache - do a hard refresh (Ctrl+Shift+R)
 3. Check browser console for any configuration loading errors
+
+### Static Files Not Loading (404 errors for config.js, config.local.js)
+1. Check that the FastAPI backend is running: `python app.py`
+2. Verify in browser console that files are requested from root paths:
+   - `http://localhost:8000/config.js`
+   - `http://localhost:8000/config.local.js` (optional)
+3. Ensure `config.js` and `config.local.js` exist in the project root directory
+4. The backend serves these files directly - restart the backend if files are moved or added
+5. Check the backend console for 404 errors (which indicate missing files)
+6. For production, ensure both files are deployed with the backend code
 
 ### Local Development Issues
 1. Ensure Python backend is running on `http://localhost:8000`

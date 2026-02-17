@@ -13,9 +13,9 @@
     <!-- Chart.js for analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
-    <!-- Load configuration -->
-    <script src="config.js"></script>
-    <script src="config.local.js" onerror="console.log('Using default configuration (config.local.js not found)');"></script>
+    <!-- Load configuration files from backend -->
+    <script src="/config.js"></script>
+    <script src="/config.local.js" onerror="console.log('Using default configuration (config.local.js not found)');"></script>
     
     <style>
         /* Design Philosophy: Professional Certification Aesthetic
@@ -831,10 +831,16 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // API Configuration (loaded from config.js)
-        // Use the API_BASE variable that was defined in config.js
+        // API Configuration (loaded from config.js and optionally config.local.js)
+        // Use getAPIBase() function to get the merged configuration
         // If config.js is not loaded, fall back to localhost
-        const API_BASE = typeof API_BASE !== 'undefined' ? API_BASE : 'http://localhost:8000/api';
+        const API_BASE = typeof getAPIBase === 'function' ? getAPIBase() : 'http://localhost:8000/api';
+        
+        // Log the API base for debugging
+        if (typeof APP_DEBUG !== 'undefined' && APP_DEBUG) {
+            console.log('API_BASE:', API_BASE);
+            console.log('Environment:', typeof APP_ENVIRONMENT !== 'undefined' ? APP_ENVIRONMENT : 'unknown');
+        }
 
         // Utility: Format time
         const formatTime = (seconds) => {

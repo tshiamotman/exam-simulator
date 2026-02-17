@@ -9,6 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from typing import List, Optional
 import uvicorn
+from pathlib import Path
 
 from models import (
     Question, ExamSession, StartExamRequest, SubmitAnswerRequest,
@@ -35,11 +36,33 @@ app.add_middleware(
 # Initialize exam engine
 engine = ExamEngine()
 
+# Define project root directory
+project_root = Path(__file__).parent
+
 
 @app.get("/")
 async def root():
     """Serve the main exam interface."""
     return FileResponse("exam.html")
+
+
+@app.get("/config.js")
+async def get_config_js():
+    """Serve the main configuration file."""
+    config_file = project_root / "config.js"
+    if not config_file.exists():
+        raise HTTPException(status_code=404, detail="config.js not found")
+    return FileResponse(str(config_file), media_type="application/javascript")
+
+
+@app.get("/config.local.js")
+async def get_config_local_js():
+    """Serve the local configuration file (optional)."""
+    config_local_file = project_root / "config.local.js"
+    if not config_local_file.exists():
+        # Return 404 but don't raise - the HTML handles the onerror gracefully
+        raise HTTPException(status_code=404, detail="config.local.js not found")
+    return FileResponse(str(config_local_file), media_type="application/javascript")
 
 
 @app.get("/api/config")

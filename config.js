@@ -35,33 +35,23 @@ const CONFIG = {
 };
 
 /**
- * Load local overrides if they exist
- * Create a config.local.js file with your environment-specific settings
- * to override the defaults above
- */
-if (typeof CONFIG_LOCAL !== 'undefined') {
-    // Deep merge CONFIG_LOCAL into CONFIG
-    const merge = (target, source) => {
-        for (const key in source) {
-            if (source[key] instanceof Object && !Array.isArray(source[key])) {
-                target[key] = merge(target[key] || {}, source[key]);
-            } else {
-                target[key] = source[key];
-            }
-        }
-        return target;
-    };
-    merge(CONFIG, CONFIG_LOCAL);
-}
-
-/**
  * Validate configuration
  */
 if (!CONFIG.api.baseUrl) {
     console.error('Configuration error: api.baseUrl is required');
 }
 
-// Export for use in the application
-const API_BASE = CONFIG.api.baseUrl;
+// Function to get the current API_BASE (allows dynamic updates after local config loads)
+function getAPIBase() {
+    return CONFIG.api.baseUrl;
+}
+
+// Function to get all config
+function getConfig() {
+    return CONFIG;
+}
+
+// Export individual properties for convenience
 const APP_DEBUG = CONFIG.debug;
 const APP_ENVIRONMENT = CONFIG.environment;
+

@@ -1,0 +1,904 @@
+{
+  "questions": [
+    {
+      "id": "Q001",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the primary purpose of mine ventilation?",
+      "answers": [
+        {"id": "A", "text": "To reduce mining costs"},
+        {"id": "B", "text": "To provide fresh air, dilute contaminants, and control temperature and humidity"},
+        {"id": "C", "text": "To increase ore extraction rates"},
+        {"id": "D", "text": "To reduce the need for personal protective equipment"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Mine ventilation serves to supply sufficient fresh air, dilute and remove noxious gases and dust, and control the thermal environment to ensure a safe and healthy workplace.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q002",
+      "topic": "Mine Ventilation",
+      "question_text": "Which law states that the pressure drop across two parallel airways is equal?",
+      "answers": [
+        {"id": "A", "text": "Boyle's Law"},
+        {"id": "B", "text": "Kirchhoff's Voltage Law applied to ventilation"},
+        {"id": "C", "text": "Atkinson's Law"},
+        {"id": "D", "text": "Darcy's Law"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Kirchhoff's laws applied to mine ventilation state that the pressure drop across parallel airways is equal, and the sum of pressure drops around a closed loop is zero.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q003",
+      "topic": "Mine Ventilation",
+      "question_text": "What does Atkinson's equation describe?",
+      "answers": [
+        {"id": "A", "text": "The relationship between gas concentration and exposure time"},
+        {"id": "B", "text": "The resistance to airflow in a mine airway"},
+        {"id": "C", "text": "Heat exchange between rock and air"},
+        {"id": "D", "text": "Dust particle settling velocity"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Atkinson's equation (H = R * Q²) describes the relationship between pressure drop (H), resistance (R), and airflow quantity (Q) in a mine airway.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q004",
+      "topic": "Mine Ventilation",
+      "question_text": "If two airways are connected in series, how is the total resistance calculated?",
+      "answers": [
+        {"id": "A", "text": "Total resistance = R1 × R2"},
+        {"id": "B", "text": "Total resistance = R1 + R2"},
+        {"id": "C", "text": "Total resistance = 1/R1 + 1/R2"},
+        {"id": "D", "text": "Total resistance = (R1 × R2) / (R1 + R2)"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "For airways in series, resistances are additive: R_total = R1 + R2 + ... + Rn, similar to resistors in series in electrical circuits.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q005",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the unit of airway resistance in SI units?",
+      "answers": [
+        {"id": "A", "text": "Pascals (Pa)"},
+        {"id": "B", "text": "Ns²/m⁸ (Atkinson units)"},
+        {"id": "C", "text": "m³/s"},
+        {"id": "D", "text": "Watts (W)"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The SI unit for airway resistance is Ns²/m⁸, sometimes referred to as an Atkinson unit (Atkinsons). It relates pressure drop in Pascals to flow in m³/s.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q006",
+      "topic": "Mine Ventilation",
+      "question_text": "What type of fan characteristic curve is required for stable fan operation?",
+      "answers": [
+        {"id": "A", "text": "A flat horizontal curve"},
+        {"id": "B", "text": "A continuously rising curve from free air delivery to shut-off"},
+        {"id": "C", "text": "A curve that falls steeply as flow increases"},
+        {"id": "D", "text": "A saddle-shaped (hump) curve"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "For stable fan operation, the fan characteristic should show pressure falling as flow increases (negatively sloped). A saddle-shaped or hump curve can cause unstable operation called surging.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q007",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the formula for computing ventilation power (P)?",
+      "answers": [
+        {"id": "A", "text": "P = H / Q"},
+        {"id": "B", "text": "P = H × Q"},
+        {"id": "C", "text": "P = H² × Q"},
+        {"id": "D", "text": "P = H + Q"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Ventilation power P = H × Q, where H is the pressure in Pascals and Q is the airflow in m³/s, giving power in Watts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q008",
+      "topic": "Mine Ventilation",
+      "question_text": "Which of the following correctly describes a 'booster fan' in mine ventilation?",
+      "answers": [
+        {"id": "A", "text": "A fan installed at the surface to boost total mine pressure"},
+        {"id": "B", "text": "A fan installed underground to supplement airflow in a specific area"},
+        {"id": "C", "text": "A backup fan used during main fan maintenance"},
+        {"id": "D", "text": "A fan used exclusively in the return airway"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "A booster fan is installed underground to boost airflow in a specific section of the mine where the main fan pressure is insufficient to deliver adequate air quantity.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q009",
+      "topic": "Mine Gases",
+      "question_text": "What is the Threshold Limit Value (TLV) for carbon monoxide (CO) in a mine atmosphere (time-weighted average)?",
+      "answers": [
+        {"id": "A", "text": "10 ppm"},
+        {"id": "B", "text": "25 ppm"},
+        {"id": "C", "text": "50 ppm"},
+        {"id": "D", "text": "100 ppm"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "The TLV-TWA for carbon monoxide is 25-50 ppm depending on the jurisdiction. In South African mines, the limit is generally set at 50 ppm for an 8-hour time-weighted average.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q010",
+      "topic": "Mine Gases",
+      "question_text": "What is the Lower Explosive Limit (LEL) of methane (CH₄)?",
+      "answers": [
+        {"id": "A", "text": "1%"},
+        {"id": "B", "text": "5%"},
+        {"id": "C", "text": "10%"},
+        {"id": "D", "text": "15%"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Methane has a Lower Explosive Limit (LEL) of 5% and an Upper Explosive Limit (UEL) of 15%. Between these concentrations it forms an explosive mixture with air.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q011",
+      "topic": "Mine Gases",
+      "question_text": "Which gas is known as 'blackdamp' in mining terminology?",
+      "answers": [
+        {"id": "A", "text": "Carbon monoxide (CO)"},
+        {"id": "B", "text": "Hydrogen sulphide (H₂S)"},
+        {"id": "C", "text": "A mixture of carbon dioxide and nitrogen depleted of oxygen"},
+        {"id": "D", "text": "Methane (CH₄)"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "Blackdamp refers to an atmosphere depleted of oxygen, typically a mixture of CO₂ and N₂, which can cause asphyxiation. It extinguishes flames (hence 'black' or dead).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q012",
+      "topic": "Mine Gases",
+      "question_text": "What is the specific gravity of methane relative to air?",
+      "answers": [
+        {"id": "A", "text": "0.55 (lighter than air)"},
+        {"id": "B", "text": "1.0 (same as air)"},
+        {"id": "C", "text": "1.52 (heavier than air)"},
+        {"id": "D", "text": "2.0 (heavier than air)"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Methane has a specific gravity of approximately 0.55, meaning it is lighter than air and tends to accumulate at the roof of mine workings.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q013",
+      "topic": "Mine Gases",
+      "question_text": "Which of the following gases are products of blasting in mines? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Carbon monoxide (CO)"},
+        {"id": "B", "text": "Nitrogen dioxide (NO₂)"},
+        {"id": "C", "text": "Methane (CH₄)"},
+        {"id": "D", "text": "Sulphur dioxide (SO₂)"}
+      ],
+      "correct_answers": ["A", "B"],
+      "question_type": "multiple_choice",
+      "explanation": "Blasting produces fumes including carbon monoxide (CO) from incomplete combustion and nitrogen oxides (NOₓ) including NO₂ from the oxidation of nitrogen-based explosives.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q014",
+      "topic": "Mine Gases",
+      "question_text": "What minimum oxygen content must be maintained in a mine atmosphere for safe working?",
+      "answers": [
+        {"id": "A", "text": "15%"},
+        {"id": "B", "text": "17%"},
+        {"id": "C", "text": "19.5%"},
+        {"id": "D", "text": "21%"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "A minimum of 19.5% oxygen is required for safe working conditions in mines. Below this level, the atmosphere is considered oxygen-deficient and poses serious health risks.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q015",
+      "topic": "Mine Gases",
+      "question_text": "What is the TLV-TWA for hydrogen sulphide (H₂S)?",
+      "answers": [
+        {"id": "A", "text": "0.5 ppm"},
+        {"id": "B", "text": "1 ppm"},
+        {"id": "C", "text": "5 ppm"},
+        {"id": "D", "text": "10 ppm"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The TLV-TWA for H₂S is 1 ppm. H₂S is extremely toxic; at concentrations above 150 ppm it can cause rapid unconsciousness and death.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q016",
+      "topic": "Thermal Environment",
+      "question_text": "What is 'virgin rock temperature' (VRT)?",
+      "answers": [
+        {"id": "A", "text": "The surface temperature of exposed rock in a mine"},
+        {"id": "B", "text": "The temperature of undisturbed rock mass unaffected by mining"},
+        {"id": "C", "text": "The temperature at which rock fractures"},
+        {"id": "D", "text": "The minimum safe temperature for mine workers"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Virgin Rock Temperature (VRT) is the natural, undisturbed temperature of the rock mass at a given depth before any mining activity has affected it.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q017",
+      "topic": "Thermal Environment",
+      "question_text": "What is the geothermal gradient typically used in South African gold mines?",
+      "answers": [
+        {"id": "A", "text": "5°C per 100m depth"},
+        {"id": "B", "text": "10°C per 100m depth"},
+        {"id": "C", "text": "1°C per 100m depth"},
+        {"id": "D", "text": "8°C per 100m depth"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "In South African gold mines, the geothermal gradient is approximately 9-10°C per 100m depth, making thermal conditions a critical environmental concern in deep mines.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q018",
+      "topic": "Thermal Environment",
+      "question_text": "What does Wet Bulb Globe Temperature (WBGT) measure?",
+      "answers": [
+        {"id": "A", "text": "Air temperature only"},
+        {"id": "B", "text": "Rock temperature at depth"},
+        {"id": "C", "text": "A composite index of heat stress accounting for temperature, humidity, and radiation"},
+        {"id": "D", "text": "The cooling efficiency of mine ventilation"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "WBGT is a composite index used to assess heat stress. It accounts for air temperature, humidity (wet bulb), and radiant heat (globe temperature) to estimate physiological strain on workers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q019",
+      "topic": "Thermal Environment",
+      "question_text": "What is the maximum allowable wet bulb temperature for continuous work in South African mines?",
+      "answers": [
+        {"id": "A", "text": "25°C wet bulb"},
+        {"id": "B", "text": "27.5°C wet bulb"},
+        {"id": "C", "text": "30°C wet bulb"},
+        {"id": "D", "text": "32°C wet bulb"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "South African mining regulations set the maximum allowable wet bulb temperature at 27.5°C for continuous work and 31°C for intermittent work, with 32.5°C being the absolute maximum for any work.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q020",
+      "topic": "Thermal Environment",
+      "question_text": "What is 'auto-compression' in mine ventilation?",
+      "answers": [
+        {"id": "A", "text": "Automatic regulation of fan speed"},
+        {"id": "B", "text": "Heating of air as it descends in a shaft due to increasing pressure"},
+        {"id": "C", "text": "Compression of ventilation ducting"},
+        {"id": "D", "text": "The self-sealing property of ventilation doors"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Auto-compression is the adiabatic heating of air as it descends in a shaft. Air temperature increases by approximately 1°C for every 100m of descent due to increasing atmospheric pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q021",
+      "topic": "Thermal Environment",
+      "question_text": "Which of the following are major sources of heat in deep mines? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Auto-compression"},
+        {"id": "B", "text": "Virgin rock heat"},
+        {"id": "C", "text": "Machinery and equipment"},
+        {"id": "D", "text": "Metabolic heat from workers"}
+      ],
+      "correct_answers": ["A", "B", "C", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "All four are significant heat sources: auto-compression heats descending air, virgin rock transfers heat to air, machinery dissipates heat, and workers produce metabolic heat. In deep mines, blasting and explosives also contribute.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q022",
+      "topic": "Thermal Environment",
+      "question_text": "What is the cooling power required to reduce air temperature in deep mines primarily achieved by?",
+      "answers": [
+        {"id": "A", "text": "Increasing airflow quantity only"},
+        {"id": "B", "text": "Refrigeration plants and ice systems"},
+        {"id": "C", "text": "Water misting systems"},
+        {"id": "D", "text": "Reducing the number of workers underground"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "In deep mines, ventilation alone is insufficient to remove heat. Bulk air cooling using refrigeration plants and ice systems is required to achieve acceptable thermal conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q023",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What size of dust particles is considered most hazardous for causing pneumoconiosis?",
+      "answers": [
+        {"id": "A", "text": "Particles larger than 10 micrometres"},
+        {"id": "B", "text": "Particles between 0.5 and 5 micrometres (respirable dust)"},
+        {"id": "C", "text": "Particles between 5 and 10 micrometres"},
+        {"id": "D", "text": "Particles smaller than 0.1 micrometres"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Respirable dust (0.5 to 5 micrometres) is most hazardous as it penetrates deep into the alveoli of the lungs. Larger particles are captured in the upper respiratory tract.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q024",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What lung disease is caused by prolonged exposure to silica dust?",
+      "answers": [
+        {"id": "A", "text": "Asbestosis"},
+        {"id": "B", "text": "Silicosis"},
+        {"id": "C", "text": "Byssinosis"},
+        {"id": "D", "text": "Anthracosis"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Silicosis is a fibrotic lung disease caused by inhalation of crystalline silica (quartz) dust. It is irreversible and a major occupational hazard in hard rock mining.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q025",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What is the permissible exposure limit (PEL) for respirable silica dust in South African mines?",
+      "answers": [
+        {"id": "A", "text": "0.1 mg/m³"},
+        {"id": "B", "text": "0.5 mg/m³"},
+        {"id": "C", "text": "1.0 mg/m³"},
+        {"id": "D", "text": "2.0 mg/m³"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "In South Africa, the occupational exposure limit for respirable crystalline silica (RCS) is 0.1 mg/m³ as a time-weighted average over an 8-hour shift.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q026",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "Which method is commonly used to measure dust concentrations in mines?",
+      "answers": [
+        {"id": "A", "text": "Visual estimation"},
+        {"id": "B", "text": "Gravimetric sampling using filter cassettes"},
+        {"id": "C", "text": "Sound level meters"},
+        {"id": "D", "text": "Infrared thermometers"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Gravimetric sampling uses filter cassettes to collect airborne dust, which is then weighed before and after sampling to determine mass concentration (mg/m³).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q027",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What is the primary means of dust suppression during drilling operations?",
+      "answers": [
+        {"id": "A", "text": "Wearing respirators only"},
+        {"id": "B", "text": "Water injection through the drill steel (wet drilling)"},
+        {"id": "C", "text": "Increasing ventilation only"},
+        {"id": "D", "text": "Reducing drilling speed"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Wet drilling (water injection through the drill steel) is the primary dust suppression method during drilling. It wets the cuttings at source, preventing dust from becoming airborne.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q028",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What does the term 'personal exposure monitoring' mean in occupational hygiene?",
+      "answers": [
+        {"id": "A", "text": "Monitoring noise levels in the workplace"},
+        {"id": "B", "text": "Measuring contaminant exposure in the worker's breathing zone over their shift"},
+        {"id": "C", "text": "Assessing worker fitness for duty"},
+        {"id": "D", "text": "Monitoring thermal conditions at workplaces"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Personal exposure monitoring involves attaching a sampling device to the worker to measure the actual concentration of contaminants in their breathing zone throughout the work shift.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q029",
+      "topic": "Noise and Vibration",
+      "question_text": "What is the noise dose limit for an 8-hour working day in South African mines?",
+      "answers": [
+        {"id": "A", "text": "80 dB(A)"},
+        {"id": "B", "text": "85 dB(A)"},
+        {"id": "C", "text": "90 dB(A)"},
+        {"id": "D", "text": "95 dB(A)"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The occupational exposure limit for noise in South African mines is 85 dB(A) as an 8-hour time-weighted average. Exposure above this requires hearing protection and noise management programs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q030",
+      "topic": "Noise and Vibration",
+      "question_text": "What type of hearing loss is caused by prolonged exposure to excessive noise?",
+      "answers": [
+        {"id": "A", "text": "Conductive hearing loss"},
+        {"id": "B", "text": "Noise-Induced Hearing Loss (NIHL)"},
+        {"id": "C", "text": "Presbycusis"},
+        {"id": "D", "text": "Acoustic neuroma"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Noise-Induced Hearing Loss (NIHL) is permanent sensorineural hearing loss resulting from damage to the hair cells in the cochlea caused by excessive noise exposure over time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q031",
+      "topic": "Noise and Vibration",
+      "question_text": "What is the exchange rate (doubling rate) used for noise in South African mining regulations?",
+      "answers": [
+        {"id": "A", "text": "3 dB"},
+        {"id": "B", "text": "4 dB"},
+        {"id": "C", "text": "5 dB"},
+        {"id": "D", "text": "6 dB"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "South African mines use a 5 dB exchange rate (trading ratio), meaning exposure time must be halved for every 5 dB increase in noise level above the action level.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q032",
+      "topic": "Noise and Vibration",
+      "question_text": "What is Hand-Arm Vibration Syndrome (HAVS)?",
+      "answers": [
+        {"id": "A", "text": "A condition caused by noise exposure affecting the inner ear"},
+        {"id": "B", "text": "A circulatory and neurological disorder caused by prolonged use of vibrating tools"},
+        {"id": "C", "text": "Muscle fatigue from repetitive hand movements"},
+        {"id": "D", "text": "A fracture condition from impact tool use"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "HAVS (also called Vibration White Finger) is caused by prolonged use of vibrating hand-held tools. It affects circulation (Raynaud's phenomenon), nerves, and muscles in the fingers and hands.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q033",
+      "topic": "Legislation and Regulations",
+      "question_text": "Which South African legislation primarily governs occupational health and safety in mines?",
+      "answers": [
+        {"id": "A", "text": "Basic Conditions of Employment Act"},
+        {"id": "B", "text": "Mine Health and Safety Act (MHSA) No. 29 of 1996"},
+        {"id": "C", "text": "Occupational Health and Safety Act (OHSA) No. 85 of 1993"},
+        {"id": "D", "text": "Minerals Act No. 50 of 1991"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The Mine Health and Safety Act (MHSA) No. 29 of 1996 is the primary legislation governing health and safety in South African mines, applicable to all mining operations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q034",
+      "topic": "Legislation and Regulations",
+      "question_text": "What is the role of the Mine Health and Safety Inspectorate?",
+      "answers": [
+        {"id": "A", "text": "To manage mining operations"},
+        {"id": "B", "text": "To regulate and enforce health and safety standards in mines"},
+        {"id": "C", "text": "To provide training to miners"},
+        {"id": "D", "text": "To conduct environmental impact assessments"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The Mine Health and Safety Inspectorate (under DMRE) enforces compliance with the MHSA, conducts inspections, investigates accidents, and ensures mines meet regulatory standards.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q035",
+      "topic": "Legislation and Regulations",
+      "question_text": "Under the MHSA, who is responsible for health and safety at a mine?",
+      "answers": [
+        {"id": "A", "text": "The government inspectorate only"},
+        {"id": "B", "text": "The mine manager alone"},
+        {"id": "C", "text": "The owner (employer), and every employee has responsibilities"},
+        {"id": "D", "text": "The occupational health nurse"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "Under the MHSA, health and safety is a shared responsibility. The owner/employer has the primary duty of care, but every employee has a duty to protect their own and others' health and safety.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q036",
+      "topic": "Legislation and Regulations",
+      "question_text": "What is an Occupational Exposure Limit (OEL) in the context of mine environmental control?",
+      "answers": [
+        {"id": "A", "text": "The maximum permissible concentration of a substance in the mine atmosphere"},
+        {"id": "B", "text": "The minimum safe temperature for mine workers"},
+        {"id": "C", "text": "The maximum noise level permitted underground"},
+        {"id": "D", "text": "The number of hours a worker can spend underground"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "An OEL is the maximum concentration of a hazardous substance (gas, dust, etc.) in the working atmosphere to which workers may be exposed without adverse health effects, usually expressed as a time-weighted average.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q037",
+      "topic": "Legislation and Regulations",
+      "question_text": "Which of the following must be reported under the MHSA? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Fatalities"},
+        {"id": "B", "text": "Serious injuries"},
+        {"id": "C", "text": "Occupational diseases"},
+        {"id": "D", "text": "All incidents with injury potential"}
+      ],
+      "correct_answers": ["A", "B", "C"],
+      "question_type": "multiple_choice",
+      "explanation": "Under the MHSA, mines must report fatalities, serious injuries, and occupational diseases. While near-misses should be managed internally, formal reporting to DMRE is required for the three listed categories.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q038",
+      "topic": "Ventilation Planning",
+      "question_text": "What is the minimum quantity of air required per person working underground according to South African mine regulations?",
+      "answers": [
+        {"id": "A", "text": "0.06 m³/s per person"},
+        {"id": "B", "text": "0.1 m³/s per person"},
+        {"id": "C", "text": "0.5 m³/s per person"},
+        {"id": "D", "text": "1.0 m³/s per person"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "South African mining regulations require a minimum of 0.06 m³/s (60 L/s) of fresh air per person working underground, though actual requirements are usually much higher based on contaminant control needs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q039",
+      "topic": "Ventilation Planning",
+      "question_text": "What is the purpose of a ventilation survey?",
+      "answers": [
+        {"id": "A", "text": "To count the number of workers underground"},
+        {"id": "B", "text": "To measure airflow quantities, pressures, and resistances throughout the mine"},
+        {"id": "C", "text": "To measure dust concentrations"},
+        {"id": "D", "text": "To assess rock stability"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "A ventilation survey measures airflow quantities, pressure differences, and airway resistances to provide data for analysis, network modelling, and planning of ventilation improvements.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q040",
+      "topic": "Ventilation Planning",
+      "question_text": "What instrument is used to measure air velocity in mine airways?",
+      "answers": [
+        {"id": "A", "text": "Barometer"},
+        {"id": "B", "text": "Anemometer"},
+        {"id": "C", "text": "Hygrometer"},
+        {"id": "D", "text": "Manometer"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "An anemometer (vane anemometer or hot-wire anemometer) is used to measure air velocity in mine airways. Airflow quantity is then calculated by multiplying velocity by cross-sectional area.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q041",
+      "topic": "Ventilation Planning",
+      "question_text": "What is a pressure-quantity (P-Q) characteristic curve used for in mine ventilation?",
+      "answers": [
+        {"id": "A", "text": "To show the relationship between fan pressure and airflow"},
+        {"id": "B", "text": "To display gas concentrations over time"},
+        {"id": "C", "text": "To calculate rock temperature gradients"},
+        {"id": "D", "text": "To plan the layout of ventilation shafts"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "The P-Q (pressure-quantity) characteristic curve shows how a fan's pressure output varies with airflow, used to determine the operating point when overlaid with the mine resistance curve.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q042",
+      "topic": "Ventilation Planning",
+      "question_text": "What does 'leakage' mean in the context of mine ventilation?",
+      "answers": [
+        {"id": "A", "text": "Gas leaking from underground strata"},
+        {"id": "B", "text": "Air flowing through unintended paths (seals, stoppings, doors) not through working areas"},
+        {"id": "C", "text": "Water ingress into ventilation shafts"},
+        {"id": "D", "text": "Loss of fan efficiency"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Ventilation leakage is air that escapes through imperfect stoppings, doors, and seals and does not ventilate the working areas. It reduces the efficiency of the ventilation system.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q043",
+      "topic": "Thermal Environment",
+      "question_text": "What is the dry bulb temperature (DBT)?",
+      "answers": [
+        {"id": "A", "text": "The temperature measured by a thermometer not affected by moisture evaporation"},
+        {"id": "B", "text": "The temperature at which moisture condenses"},
+        {"id": "C", "text": "The temperature of rock surfaces"},
+        {"id": "D", "text": "A corrected temperature accounting for radiation effects"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Dry bulb temperature is the ordinary air temperature measured by a standard thermometer not influenced by moisture. It is one of the key parameters used to characterise the thermal environment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q044",
+      "topic": "Thermal Environment",
+      "question_text": "What does relative humidity (RH) measure?",
+      "answers": [
+        {"id": "A", "text": "The actual amount of water vapour in the air"},
+        {"id": "B", "text": "The ratio of actual water vapour pressure to the saturated vapour pressure at the same temperature"},
+        {"id": "C", "text": "The rate of evaporation from a water surface"},
+        {"id": "D", "text": "The cooling effect of air movement on workers"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Relative humidity is the ratio of actual vapour pressure to the saturation vapour pressure at the same temperature, expressed as a percentage. 100% RH means the air is fully saturated.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q045",
+      "topic": "Mine Gases",
+      "question_text": "What is the purpose of a catalytic oxidation methane detector (methanometer)?",
+      "answers": [
+        {"id": "A", "text": "To measure oxygen concentration"},
+        {"id": "B", "text": "To detect and measure methane concentration in the atmosphere"},
+        {"id": "C", "text": "To detect carbon monoxide"},
+        {"id": "D", "text": "To measure total combustible gas concentrations only"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "A catalytic oxidation methanometer detects methane by measuring the heat produced when CH₄ is oxidised on a heated catalyst bead, providing a reading of methane concentration in the atmosphere.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q046",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the effect of increasing the cross-sectional area of an airway on its resistance?",
+      "answers": [
+        {"id": "A", "text": "Resistance increases proportionally"},
+        {"id": "B", "text": "Resistance decreases significantly (inversely proportional to area cubed)"},
+        {"id": "C", "text": "Resistance is not affected"},
+        {"id": "D", "text": "Resistance decreases proportionally"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Airway resistance is inversely proportional to A³ (area cubed) in Atkinson's equation. Doubling the cross-sectional area reduces resistance by a factor of 8, significantly improving airflow.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q047",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What is the hierarchy of controls for managing occupational health hazards, from most to least preferred?",
+      "answers": [
+        {"id": "A", "text": "PPE → Administrative → Engineering → Substitution → Elimination"},
+        {"id": "B", "text": "Elimination → Substitution → Engineering controls → Administrative controls → PPE"},
+        {"id": "C", "text": "Administrative → Engineering → PPE → Substitution → Elimination"},
+        {"id": "D", "text": "Engineering → PPE → Administrative → Elimination → Substitution"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The hierarchy of controls from most to least preferred is: Elimination, Substitution, Engineering controls (isolation, ventilation), Administrative controls (work practices, rotation), and PPE as the last resort.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q048",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What type of respirator is most appropriate for protection against silica dust?",
+      "answers": [
+        {"id": "A", "text": "A simple dust mask (surgical mask)"},
+        {"id": "B", "text": "A half-face respirator with P2/N95 or higher rated filter"},
+        {"id": "C", "text": "Activated carbon respirator"},
+        {"id": "D", "text": "Supplied air respirator only"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "A half-face respirator with at minimum a P2 (or N95 equivalent) particulate filter is required for silica dust protection. The filter must be properly fitted and fit-tested to be effective.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q049",
+      "topic": "Ventilation Planning",
+      "question_text": "What is 'natural ventilation' in underground mines?",
+      "answers": [
+        {"id": "A", "text": "Ventilation powered entirely by solar energy"},
+        {"id": "B", "text": "Airflow driven by differences in air density caused by temperature and elevation differences"},
+        {"id": "C", "text": "Ventilation using only natural rock cracks and fissures"},
+        {"id": "D", "text": "Airflow created by worker movement"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Natural ventilation pressure (NVP) is created by differences in air density between intake and return airways caused by temperature and elevation differences, creating airflow without mechanical fans.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q050",
+      "topic": "Mine Gases",
+      "question_text": "What action should be taken if methane concentration exceeds 1.5% in a working area?",
+      "answers": [
+        {"id": "A", "text": "Continue working with extra ventilation"},
+        {"id": "B", "text": "Issue a warning but allow work to continue"},
+        {"id": "C", "text": "Immediately withdraw all workers and isolate electrical equipment"},
+        {"id": "D", "text": "Increase fan speed only"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "When methane exceeds 1.5% (30% of LEL), all persons must be withdrawn from the area, electrical equipment isolated at source, and the cause investigated before re-entry is permitted.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q051",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the purpose of a ventilation regulator (air door or brattice)?",
+      "answers": [
+        {"id": "A", "text": "To stop all airflow in an emergency"},
+        {"id": "B", "text": "To control and distribute airflow to different sections of the mine"},
+        {"id": "C", "text": "To measure air velocity"},
+        {"id": "D", "text": "To filter dust from the air"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Regulators (including adjustable doors, brattices) are used to increase resistance in an airway to redirect or control the distribution of air to different sections of the mine.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q052",
+      "topic": "Legislation and Regulations",
+      "question_text": "What must an employer provide to employees working in areas with noise levels above 85 dB(A)?",
+      "answers": [
+        {"id": "A", "text": "A pay increase"},
+        {"id": "B", "text": "Suitable hearing protection devices and a hearing conservation programme"},
+        {"id": "C", "text": "Shorter working hours only"},
+        {"id": "D", "text": "Annual medical examinations only"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Where noise exceeds the OEL, employers must provide suitable hearing protection devices, implement noise control measures, and establish a hearing conservation program including audiometric testing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q053",
+      "topic": "Thermal Environment",
+      "question_text": "What is the purpose of an acclimatisation programme for new mine workers?",
+      "answers": [
+        {"id": "A", "text": "To teach new workers how to use equipment"},
+        {"id": "B", "text": "To allow the body to gradually adapt physiologically to heat stress"},
+        {"id": "C", "text": "To assess fitness for employment"},
+        {"id": "D", "text": "To reduce the risk of accidents during training"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Acclimatisation allows physiological adaptation to heat (increased sweat rate, reduced heart rate, lower core temperature). New workers must be acclimatised gradually over 8-14 days before full exposure to hot conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q054",
+      "topic": "Mine Gases",
+      "question_text": "What is 'stinkdamp' in mining terminology?",
+      "answers": [
+        {"id": "A", "text": "Carbon monoxide (CO)"},
+        {"id": "B", "text": "Hydrogen sulphide (H₂S)"},
+        {"id": "C", "text": "Nitrogen dioxide (NO₂)"},
+        {"id": "D", "text": "Methane (CH₄)"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Stinkdamp is the mining term for hydrogen sulphide (H₂S), named for its characteristic rotten egg smell. At high concentrations, H₂S paralyses the olfactory nerve, eliminating the warning smell.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q055",
+      "topic": "Dust and Occupational Hygiene",
+      "question_text": "What is a Dust Control Management Plan required to include? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Identification of dust sources"},
+        {"id": "B", "text": "Control measures for each dust source"},
+        {"id": "C", "text": "Monitoring schedule and results"},
+        {"id": "D", "text": "Health surveillance programme"}
+      ],
+      "correct_answers": ["A", "B", "C", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "A comprehensive Dust Control Management Plan must include identification of all dust sources, specific control measures, an air monitoring programme with results, and a medical surveillance programme for exposed workers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q056",
+      "topic": "Ventilation Planning",
+      "question_text": "What is the effect of two fans operating in parallel on a ventilation system?",
+      "answers": [
+        {"id": "A", "text": "Doubles the pressure, same flow"},
+        {"id": "B", "text": "Increases quantity while pressure remains approximately the same"},
+        {"id": "C", "text": "No effect if mines are deep"},
+        {"id": "D", "text": "Reduces resistance of the system"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Fans in parallel increase the total airflow quantity because their flow capacities combine. The operating pressure is approximately the same as a single fan since each fan handles a portion of the total flow.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q057",
+      "topic": "Mine Gases",
+      "question_text": "What is 'afterdamp' in mines?",
+      "answers": [
+        {"id": "A", "text": "The gas mixture produced after a fire or explosion, containing CO, CO₂ and N₂"},
+        {"id": "B", "text": "Methane released after blasting"},
+        {"id": "C", "text": "Steam produced by hot rock"},
+        {"id": "D", "text": "Diesel exhaust fumes"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Afterdamp is the toxic, oxygen-deficient gas mixture remaining after a mine fire or explosion, containing carbon monoxide (CO), carbon dioxide (CO₂), and nitrogen (N₂). It is extremely dangerous.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q058",
+      "topic": "Noise and Vibration",
+      "question_text": "What audiometric test result indicates noise-induced hearing loss?",
+      "answers": [
+        {"id": "A", "text": "Elevated bone conduction thresholds"},
+        {"id": "B", "text": "A notch in the audiogram at 4000 Hz (4 kHz)"},
+        {"id": "C", "text": "Reduced low frequency hearing"},
+        {"id": "D", "text": "Equal loss at all frequencies"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The classic audiometric signature of NIHL is a notch (dip) at 4000 Hz (4 kHz), representing early damage to the hair cells most sensitive to the frequencies in typical industrial noise.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q059",
+      "topic": "Legislation and Regulations",
+      "question_text": "What is the purpose of a risk assessment in mine environmental control?",
+      "answers": [
+        {"id": "A", "text": "To assign blame for accidents"},
+        {"id": "B", "text": "To identify hazards, evaluate risks, and implement controls to prevent harm"},
+        {"id": "C", "text": "To meet insurance requirements only"},
+        {"id": "D", "text": "To replace medical surveillance programs"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Risk assessment is a systematic process to identify all hazards in the workplace, evaluate the likelihood and severity of harm, and implement appropriate controls to reduce risk to acceptable levels.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q060",
+      "topic": "Mine Ventilation",
+      "question_text": "What is the purpose of a ventilation stopping?",
+      "answers": [
+        {"id": "A", "text": "To provide support for the mine roof"},
+        {"id": "B", "text": "To permanently seal off disused workings and direct airflow"},
+        {"id": "C", "text": "To create a safe refuge chamber"},
+        {"id": "D", "text": "To measure airflow quantities"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Ventilation stoppings are walls built across airways to seal off disused workings, prevent short-circuiting of airflow, and direct air through the intended ventilation circuit.",
+      "difficulty": "easy"
+    }
+  ]
+}

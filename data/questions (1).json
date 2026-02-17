@@ -1,0 +1,904 @@
+{
+  "questions": [
+    {
+      "id": "Q001",
+      "topic": "DataRaptors",
+      "question_text": "What is the primary purpose of a DataRaptor Extract?",
+      "answers": [
+        {"id": "A", "text": "Update Salesforce records"},
+        {"id": "B", "text": "Read Salesforce data"},
+        {"id": "C", "text": "Orchestrate external services"},
+        {"id": "D", "text": "Render UI components"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Extract is specifically designed to read and retrieve data from Salesforce. It queries objects and fields and can perform data transformations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q002",
+      "topic": "DataRaptors",
+      "question_text": "Which DataRaptor type would you use to update multiple records in a single transaction?",
+      "answers": [
+        {"id": "A", "text": "DataRaptor Extract"},
+        {"id": "B", "text": "DataRaptor Load"},
+        {"id": "C", "text": "DataRaptor Transform"},
+        {"id": "D", "text": "DataRaptor Turbo Extract"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Load is used for creating or updating Salesforce records. It can handle multiple records in a single operation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q003",
+      "topic": "DataRaptors",
+      "question_text": "What does the 'Null Default Value' checkbox do in a DataRaptor?",
+      "answers": [
+        {"id": "A", "text": "Sets the field to null if no value is provided"},
+        {"id": "B", "text": "Prevents null values from being written"},
+        {"id": "C", "text": "Uses a default value when the source is null"},
+        {"id": "D", "text": "Validates that the field is not null"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "The Null Default Value option allows you to specify a default value to use when the source field is null or empty.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q004",
+      "topic": "DataRaptors",
+      "question_text": "What is the advantage of using a DataRaptor Turbo Extract over a regular DataRaptor Extract?",
+      "answers": [
+        {"id": "A", "text": "It can update records"},
+        {"id": "B", "text": "Better performance with server-side processing"},
+        {"id": "C", "text": "It supports more data transformations"},
+        {"id": "D", "text": "It can call external APIs"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Turbo Extract processes data on the server side, resulting in better performance especially with large data sets.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q005",
+      "topic": "DataRaptors",
+      "question_text": "In a DataRaptor Transform, what is the purpose of the Extract step?",
+      "answers": [
+        {"id": "A", "text": "To read data from Salesforce"},
+        {"id": "B", "text": "To define the input data structure"},
+        {"id": "C", "text": "To transform the data format"},
+        {"id": "D", "text": "To validate input data"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "In a DataRaptor Transform, the Extract step defines the structure of the input JSON data that will be transformed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q006",
+      "topic": "DataRaptors",
+      "question_text": "Which of the following can be used as a data source in a DataRaptor Extract? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Salesforce Objects"},
+        {"id": "B", "text": "External APIs"},
+        {"id": "C", "text": "Related Objects via Relationships"},
+        {"id": "D", "text": "Formula Fields"}
+      ],
+      "correct_answers": ["A", "C", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "DataRaptor Extract can query Salesforce objects, traverse relationships, and access formula fields. External APIs require HTTP Actions or Integration Procedures.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q007",
+      "topic": "DataRaptors",
+      "question_text": "What happens when a DataRaptor Load encounters an error during record creation?",
+      "answers": [
+        {"id": "A", "text": "All records are rolled back"},
+        {"id": "B", "text": "Only the failed record is skipped"},
+        {"id": "C", "text": "The process continues but logs the error"},
+        {"id": "D", "text": "It depends on the error handling configuration"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "By default, DataRaptor Load operations are transactional. If one record fails, all records in the transaction are rolled back.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q008",
+      "topic": "DataRaptors",
+      "question_text": "In a DataRaptor, what does the 'List' checkbox indicate?",
+      "answers": [
+        {"id": "A", "text": "The field contains comma-separated values"},
+        {"id": "B", "text": "The data structure is an array/collection"},
+        {"id": "C", "text": "The field should be displayed as a list"},
+        {"id": "D", "text": "Multiple records will be processed"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The List checkbox indicates that the data element represents an array or collection of items, not a single value.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q009",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the Set Values element in an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "To display calculated values to the user"},
+        {"id": "B", "text": "To assign values to variables without user interaction"},
+        {"id": "C", "text": "To validate user input"},
+        {"id": "D", "text": "To create new Salesforce records"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Set Values allows you to set variable values programmatically without requiring user input, useful for calculations and data manipulation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q010",
+      "topic": "OmniScripts",
+      "question_text": "Which of the following are valid OmniScript element types? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Step"},
+        {"id": "B", "text": "Type Ahead Block"},
+        {"id": "C", "text": "Remote Action"},
+        {"id": "D", "text": "HTTP Action"}
+      ],
+      "correct_answers": ["A", "B", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "Step, Type Ahead Block, and HTTP Action are all valid OmniScript elements. Remote Action is a Visualforce concept, not an OmniScript element.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q011",
+      "topic": "OmniScripts",
+      "question_text": "What happens when you set an OmniScript element's 'Conditional View' property?",
+      "answers": [
+        {"id": "A", "text": "The element is permanently hidden"},
+        {"id": "B", "text": "The element is shown/hidden based on a condition"},
+        {"id": "C", "text": "The element requires additional validation"},
+        {"id": "D", "text": "The element's value is conditionally required"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Conditional View allows you to show or hide an element dynamically based on the evaluation of a condition expression.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q012",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the OmniScript Step element?",
+      "answers": [
+        {"id": "A", "text": "To execute server-side logic"},
+        {"id": "B", "text": "To group related elements and create navigation"},
+        {"id": "C", "text": "To validate form data"},
+        {"id": "D", "text": "To call Integration Procedures"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Step elements organize OmniScript into logical sections and provide navigation between different parts of the script.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q013",
+      "topic": "OmniScripts",
+      "question_text": "How can you pass data from an OmniScript to a DataRaptor?",
+      "answers": [
+        {"id": "A", "text": "Using the DataRaptor Post Action element"},
+        {"id": "B", "text": "Through URL parameters"},
+        {"id": "C", "text": "Via Session Storage"},
+        {"id": "D", "text": "Using Custom Settings"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "The DataRaptor Post Action element is used to pass data from an OmniScript to a DataRaptor for processing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q014",
+      "topic": "OmniScripts",
+      "question_text": "What is the difference between 'Required' and 'Required at Runtime' for an OmniScript element?",
+      "answers": [
+        {"id": "A", "text": "Required validates on save, Required at Runtime validates on navigation"},
+        {"id": "B", "text": "There is no difference"},
+        {"id": "C", "text": "Required at Runtime only applies in LWC"},
+        {"id": "D", "text": "Required is for design time, Required at Runtime is for execution"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Required validates when saving the OmniScript, while Required at Runtime validates when the user attempts to navigate to the next step.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q015",
+      "topic": "OmniScripts",
+      "question_text": "Which element would you use to display a list of records with checkboxes for selection?",
+      "answers": [
+        {"id": "A", "text": "Multi-Select"},
+        {"id": "B", "text": "Table"},
+        {"id": "C", "text": "Type Ahead"},
+        {"id": "D", "text": "Radio Group"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The Table element can display multiple records with checkboxes, allowing users to select one or more rows.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q016",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the 'Send JSON Path' property in a DataRaptor Action?",
+      "answers": [
+        {"id": "A", "text": "To specify which data to send to the DataRaptor"},
+        {"id": "B", "text": "To format the JSON output"},
+        {"id": "C", "text": "To validate JSON syntax"},
+        {"id": "D", "text": "To encrypt sensitive data"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Send JSON Path specifies which portion of the OmniScript data should be passed to the DataRaptor for processing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q017",
+      "topic": "OmniScripts",
+      "question_text": "Which of these can trigger a calculation in a Formula element? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "User input changes"},
+        {"id": "B", "text": "Step navigation"},
+        {"id": "C", "text": "Initial page load"},
+        {"id": "D", "text": "DataRaptor response"}
+      ],
+      "correct_answers": ["A", "C"],
+      "question_type": "multiple_choice",
+      "explanation": "Formula elements recalculate when dependent field values change (user input) and on initial page load. They don't automatically recalculate on navigation or DataRaptor responses without field changes.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q018",
+      "topic": "OmniScripts",
+      "question_text": "What is the recommended way to handle errors in an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "Use Try-Catch blocks in custom JavaScript"},
+        {"id": "B", "text": "Use Error Action elements"},
+        {"id": "C", "text": "Configure error handling in Integration Procedures"},
+        {"id": "D", "text": "Implement validation rules"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "The recommended approach is to handle errors in Integration Procedures, which provide built-in error handling capabilities and conditional paths.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q019",
+      "topic": "Integration Procedures",
+      "question_text": "What is the main advantage of using an Integration Procedure instead of directly calling Apex from an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "Better performance"},
+        {"id": "B", "text": "Declarative configuration and reusability"},
+        {"id": "C", "text": "Access to more Salesforce APIs"},
+        {"id": "D", "text": "Automatic error handling"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Integration Procedures provide a declarative way to orchestrate data operations that can be reused across multiple OmniScripts and FlexCards without writing code.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q020",
+      "topic": "Integration Procedures",
+      "question_text": "Which Integration Procedure action would you use to call an external REST API?",
+      "answers": [
+        {"id": "A", "text": "DataRaptor Post Action"},
+        {"id": "B", "text": "HTTP Action"},
+        {"id": "C", "text": "Remote Action"},
+        {"id": "D", "text": "Apex Remote Action"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "HTTP Action is specifically designed to make callouts to external REST APIs from Integration Procedures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q021",
+      "topic": "Integration Procedures",
+      "question_text": "In an Integration Procedure, what is the purpose of the Response JSON Path?",
+      "answers": [
+        {"id": "A", "text": "To format the final output structure"},
+        {"id": "B", "text": "To extract specific data from action responses"},
+        {"id": "C", "text": "To validate JSON syntax"},
+        {"id": "D", "text": "To compress response data"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Response JSON Path is used to extract specific portions of data from an action's response and make it available to subsequent actions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q022",
+      "topic": "Integration Procedures",
+      "question_text": "What is the purpose of the 'Execution Conditional Formula' in an Integration Procedure action?",
+      "answers": [
+        {"id": "A", "text": "To validate input data"},
+        {"id": "B", "text": "To determine if the action should execute"},
+        {"id": "C", "text": "To format the response"},
+        {"id": "D", "text": "To handle errors"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Execution Conditional Formula determines whether an action should execute based on a conditional expression. If false, the action is skipped.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q023",
+      "topic": "Integration Procedures",
+      "question_text": "How can you pass data between actions in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "Using global variables"},
+        {"id": "B", "text": "Through the Response JSON Path and subsequent action inputs"},
+        {"id": "C", "text": "Via custom metadata"},
+        {"id": "D", "text": "Using Platform Events"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Data flows between actions using Response JSON Path to extract data from one action and map it as input to subsequent actions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q024",
+      "topic": "Integration Procedures",
+      "question_text": "Which of the following actions can be used in an Integration Procedure? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "DataRaptor Extract"},
+        {"id": "B", "text": "Apex Action"},
+        {"id": "C", "text": "Set Values"},
+        {"id": "D", "text": "Delete Action"}
+      ],
+      "correct_answers": ["A", "B", "C", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "Integration Procedures support DataRaptor actions, Apex actions, Set Values for data manipulation, and Delete Actions for record deletion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q025",
+      "topic": "Integration Procedures",
+      "question_text": "What is the purpose of the 'Cache' property in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "To store results for faster subsequent calls"},
+        {"id": "B", "text": "To persist data across user sessions"},
+        {"id": "C", "text": "To reduce server memory usage"},
+        {"id": "D", "text": "To enable offline access"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Enabling cache stores the Integration Procedure results temporarily, improving performance by avoiding redundant server calls with the same inputs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q026",
+      "topic": "Integration Procedures",
+      "question_text": "How do you handle conditional branching in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "Use IF-THEN statements in Apex"},
+        {"id": "B", "text": "Use Conditional Action with branch paths"},
+        {"id": "C", "text": "Create multiple Integration Procedures"},
+        {"id": "D", "text": "Use Execution Conditional Formula on actions"}
+      ],
+      "correct_answers": ["D"],
+      "question_type": "single_choice",
+      "explanation": "Conditional branching is achieved using Execution Conditional Formula on individual actions, which determines whether they execute based on data conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q027",
+      "topic": "Integration Procedures",
+      "question_text": "What is the difference between 'Input/Output' and 'Execution Options' in an Integration Procedure element?",
+      "answers": [
+        {"id": "A", "text": "Input/Output defines data flow, Execution Options controls when/how the action runs"},
+        {"id": "B", "text": "They are the same thing"},
+        {"id": "C", "text": "Input/Output is for design time, Execution Options is for runtime"},
+        {"id": "D", "text": "Input/Output is mandatory, Execution Options is optional"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Input/Output defines what data goes into and comes out of an action. Execution Options controls conditional execution, error handling, and other runtime behaviors.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q028",
+      "topic": "Integration Procedures",
+      "question_text": "Can an Integration Procedure call another Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "No, this is not supported"},
+        {"id": "B", "text": "Yes, using the Integration Procedure Action"},
+        {"id": "C", "text": "Yes, but only through Apex"},
+        {"id": "D", "text": "Yes, but only in preview mode"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Integration Procedures can call other Integration Procedures using the Integration Procedure Action, enabling modular and reusable designs.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q029",
+      "topic": "FlexCards",
+      "question_text": "What is a FlexCard state used for?",
+      "answers": [
+        {"id": "A", "text": "To define different layouts for different screen sizes"},
+        {"id": "B", "text": "To show different content based on conditions"},
+        {"id": "C", "text": "To manage card animations"},
+        {"id": "D", "text": "To control card visibility permissions"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "FlexCard states allow you to show different content, layouts, or actions based on data conditions, providing dynamic card behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q030",
+      "topic": "FlexCards",
+      "question_text": "Which of the following data sources can FlexCards use? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Integration Procedures"},
+        {"id": "B", "text": "DataRaptors"},
+        {"id": "C", "text": "SOQL Queries"},
+        {"id": "D", "text": "Apex Classes"}
+      ],
+      "correct_answers": ["A", "B"],
+      "question_type": "multiple_choice",
+      "explanation": "FlexCards can use Integration Procedures and DataRaptors as data sources. Direct SOQL queries and Apex classes are not supported data sources.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q031",
+      "topic": "FlexCards",
+      "question_text": "Which FlexCard action type would you use to navigate to a record page?",
+      "answers": [
+        {"id": "A", "text": "Event Action"},
+        {"id": "B", "text": "Navigation Action"},
+        {"id": "C", "text": "Custom Action"},
+        {"id": "D", "text": "DataRaptor Action"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Navigation Action is specifically designed to handle navigation to record pages, URLs, and other Salesforce pages.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q032",
+      "topic": "FlexCards",
+      "question_text": "What is the purpose of the 'Flyout' in a FlexCard?",
+      "answers": [
+        {"id": "A", "text": "To display additional details when the card is clicked"},
+        {"id": "B", "text": "To show validation errors"},
+        {"id": "C", "text": "To animate the card entrance"},
+        {"id": "D", "text": "To group multiple cards together"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "A Flyout provides a way to display additional information or actions in an overlay when a user interacts with the FlexCard.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q033",
+      "topic": "FlexCards",
+      "question_text": "How can you pass data from a FlexCard to an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "Using URL parameters"},
+        {"id": "B", "text": "Through a Navigation Action with parameters"},
+        {"id": "C", "text": "Via Platform Events"},
+        {"id": "D", "text": "Using Custom Metadata"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Data can be passed from a FlexCard to an OmniScript using a Navigation Action configured with input parameters.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q034",
+      "topic": "FlexCards",
+      "question_text": "What is the purpose of the 'Test Data' feature in FlexCard designer?",
+      "answers": [
+        {"id": "A", "text": "To validate card performance"},
+        {"id": "B", "text": "To preview the card with sample data"},
+        {"id": "C", "text": "To test API connections"},
+        {"id": "D", "text": "To generate unit tests"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Test Data allows you to provide sample JSON data to preview how the FlexCard will render with actual data during design time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q035",
+      "topic": "FlexCards",
+      "question_text": "Which element would you add to a FlexCard to display a clickable button?",
+      "answers": [
+        {"id": "A", "text": "Action element"},
+        {"id": "B", "text": "Button element"},
+        {"id": "C", "text": "Link element"},
+        {"id": "D", "text": "Event element"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Action elements in FlexCards are rendered as clickable buttons that can trigger various actions like navigation, events, or data updates.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q036",
+      "topic": "FlexCards",
+      "question_text": "Can FlexCards be used in Experience Cloud sites?",
+      "answers": [
+        {"id": "A", "text": "No, only in Salesforce Classic"},
+        {"id": "B", "text": "No, only in Lightning Experience"},
+        {"id": "C", "text": "Yes, as LWC components"},
+        {"id": "D", "text": "Yes, but only as iframes"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "FlexCards can be published as Lightning Web Components and used in Experience Cloud sites, Lightning pages, and other contexts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q037",
+      "topic": "FlexCards",
+      "question_text": "What is the recommended approach for displaying a list of records in FlexCards?",
+      "answers": [
+        {"id": "A", "text": "Create multiple FlexCards"},
+        {"id": "B", "text": "Use the repeater functionality with a data source returning arrays"},
+        {"id": "C", "text": "Use a Table element"},
+        {"id": "D", "text": "Use nested states"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "FlexCards have built-in repeater functionality that automatically displays multiple cards when the data source returns an array of records.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q038",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the purpose of the OmniStudio Designer role?",
+      "answers": [
+        {"id": "A", "text": "To create and modify OmniStudio components"},
+        {"id": "B", "text": "To execute OmniScripts in runtime"},
+        {"id": "C", "text": "To view OmniStudio analytics"},
+        {"id": "D", "text": "To deploy OmniStudio components to production"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "The OmniStudio Designer role grants permissions to create, edit, and configure OmniStudio components like OmniScripts, DataRaptors, and Integration Procedures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q039",
+      "topic": "OmniStudio Core",
+      "question_text": "Which statement about OmniStudio LWC (Lightning Web Components) is correct?",
+      "answers": [
+        {"id": "A", "text": "OmniScripts can only be deployed as LWC in Experience Cloud"},
+        {"id": "B", "text": "LWC OmniScripts have better performance than standard OmniScripts"},
+        {"id": "C", "text": "FlexCards cannot be deployed as LWC"},
+        {"id": "D", "text": "DataRaptors require LWC deployment to function"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "LWC-based OmniScripts typically have better performance and load times compared to the standard JavaScript-based implementation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q040",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the recommended way to migrate OmniStudio components between orgs?",
+      "answers": [
+        {"id": "A", "text": "Copy and paste JSON definitions"},
+        {"id": "B", "text": "Use Change Sets or DevOps tools"},
+        {"id": "C", "text": "Export/Import using Excel"},
+        {"id": "D", "text": "Manually recreate in each org"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The recommended approach is to use Salesforce Change Sets or DevOps tools like Salesforce CLI for proper version control and deployment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q041",
+      "topic": "OmniStudio Core",
+      "question_text": "Which package must be installed to use OmniStudio in a Salesforce org?",
+      "answers": [
+        {"id": "A", "text": "Vlocity Base"},
+        {"id": "B", "text": "OmniStudio or Vlocity OmniStudio"},
+        {"id": "C", "text": "Lightning Experience"},
+        {"id": "D", "text": "Sales Cloud"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "OmniStudio (or Vlocity OmniStudio for older implementations) must be installed as a managed package to use OmniStudio components.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q042",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the purpose of versioning in OmniStudio components?",
+      "answers": [
+        {"id": "A", "text": "To track changes and enable rollback"},
+        {"id": "B", "text": "To improve performance"},
+        {"id": "C", "text": "To enable multi-language support"},
+        {"id": "D", "text": "To compress component size"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Versioning allows you to maintain multiple versions of OmniStudio components, track changes over time, and rollback to previous versions if needed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q043",
+      "topic": "OmniStudio Core",
+      "question_text": "When should you activate an OmniStudio component?",
+      "answers": [
+        {"id": "A", "text": "Immediately after creation"},
+        {"id": "B", "text": "After testing and before making it available to end users"},
+        {"id": "C", "text": "Only in production environments"},
+        {"id": "D", "text": "Activation is automatic"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Components should be activated after thorough testing and validation, as activation makes the component available for use by end users.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q044",
+      "topic": "OmniStudio Core",
+      "question_text": "What happens when you deactivate an OmniStudio component?",
+      "answers": [
+        {"id": "A", "text": "It is permanently deleted"},
+        {"id": "B", "text": "It becomes unavailable for use but remains in the system"},
+        {"id": "C", "text": "All historical data is archived"},
+        {"id": "D", "text": "It requires redeployment to reactivate"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Deactivating a component makes it unavailable for end-user use but preserves it in the system. It can be reactivated without redeployment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q045",
+      "topic": "OmniStudio Core",
+      "question_text": "Which of the following is true about OmniStudio namespaces? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "They prevent naming conflicts"},
+        {"id": "B", "text": "They organize components by business function"},
+        {"id": "C", "text": "They are required for all components"},
+        {"id": "D", "text": "They affect component performance"}
+      ],
+      "correct_answers": ["A", "B"],
+      "question_type": "multiple_choice",
+      "explanation": "Namespaces prevent naming conflicts and help organize components logically by business function. They're not always required and don't affect performance.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q046",
+      "topic": "DataRaptors",
+      "question_text": "What is the maximum number of levels deep you can traverse relationships in a DataRaptor Extract?",
+      "answers": [
+        {"id": "A", "text": "1 level"},
+        {"id": "B", "text": "3 levels"},
+        {"id": "C", "text": "5 levels"},
+        {"id": "D", "text": "Unlimited"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Extract allows traversing up to 5 levels of object relationships, following Salesforce API limitations.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q047",
+      "topic": "DataRaptors",
+      "question_text": "How do you filter records in a DataRaptor Extract?",
+      "answers": [
+        {"id": "A", "text": "Using WHERE clause in the Filter tab"},
+        {"id": "B", "text": "Using SOQL queries"},
+        {"id": "C", "text": "Using Apex logic"},
+        {"id": "D", "text": "Records cannot be filtered"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Extract provides a Filter tab where you can specify filter conditions similar to WHERE clauses to limit which records are retrieved.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q048",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of 'Response JSON Node' in a DataRaptor Post Action?",
+      "answers": [
+        {"id": "A", "text": "To specify where to store the DataRaptor response in the data JSON"},
+        {"id": "B", "text": "To format the response"},
+        {"id": "C", "text": "To validate the response"},
+        {"id": "D", "text": "To encrypt the response"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Response JSON Node specifies the path in the OmniScript's data JSON where the DataRaptor response should be stored.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q049",
+      "topic": "OmniScripts",
+      "question_text": "Can you embed one OmniScript inside another?",
+      "answers": [
+        {"id": "A", "text": "No, this is not possible"},
+        {"id": "B", "text": "Yes, using the OmniScript element"},
+        {"id": "C", "text": "Yes, but only through iframes"},
+        {"id": "D", "text": "Yes, using Integration Procedures"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "OmniScripts can be embedded within other OmniScripts using the OmniScript element, enabling modular and reusable designs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q050",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the 'Save for Later' feature in OmniScripts?",
+      "answers": [
+        {"id": "A", "text": "To automatically save progress every 5 minutes"},
+        {"id": "B", "text": "To allow users to pause and resume later"},
+        {"id": "C", "text": "To create draft records"},
+        {"id": "D", "text": "To enable offline access"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Save for Later allows users to save their progress in an OmniScript and return to complete it later, improving user experience for long forms.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q051",
+      "topic": "Integration Procedures",
+      "question_text": "What is a Response Cache Key in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "A unique identifier for cached responses based on input parameters"},
+        {"id": "B", "text": "An encryption key for secure responses"},
+        {"id": "C", "text": "A field that triggers cache invalidation"},
+        {"id": "D", "text": "A timeout setting for cache expiration"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Response Cache Key is used to create a unique identifier based on input parameters, ensuring that cached responses are retrieved only when inputs match.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q052",
+      "topic": "Integration Procedures",
+      "question_text": "How do you handle loops or iterations in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "Use FOR loops in Apex"},
+        {"id": "B", "text": "Use a Loop Block element"},
+        {"id": "C", "text": "Integration Procedures don't support loops"},
+        {"id": "D", "text": "Use recursive Integration Procedure calls"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Integration Procedures support the Loop Block element, which allows iterating over arrays or collections of data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q053",
+      "topic": "FlexCards",
+      "question_text": "What is the purpose of the 'Publish' button in FlexCard designer?",
+      "answers": [
+        {"id": "A", "text": "To save changes"},
+        {"id": "B", "text": "To make the FlexCard available as an LWC"},
+        {"id": "C", "text": "To deploy to production"},
+        {"id": "D", "text": "To create a new version"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Publishing a FlexCard generates the Lightning Web Component code, making it available for use in Lightning pages, communities, and other contexts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q054",
+      "topic": "FlexCards",
+      "question_text": "Can FlexCards display data without a data source?",
+      "answers": [
+        {"id": "A", "text": "No, a data source is always required"},
+        {"id": "B", "text": "Yes, using static content and manual data entry"},
+        {"id": "C", "text": "Yes, but only for testing"},
+        {"id": "D", "text": "Yes, using parent-provided data"}
+      ],
+      "correct_answers": ["D"],
+      "question_type": "single_choice",
+      "explanation": "FlexCards can receive data from their parent component (like another FlexCard or an OmniScript) without requiring their own data source.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q055",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the difference between 'Preview' and 'Activate' for an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "Preview is for testing, Activate makes it available to users"},
+        {"id": "B", "text": "Preview shows design view, Activate shows runtime view"},
+        {"id": "C", "text": "There is no difference"},
+        {"id": "D", "text": "Preview is faster than Activate"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Preview allows you to test the OmniScript in a safe environment. Activate publishes it and makes it available to end users with appropriate permissions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q056",
+      "topic": "DataRaptors",
+      "question_text": "What happens when you enable 'Is this Required?' for a field in a DataRaptor Load?",
+      "answers": [
+        {"id": "A", "text": "The field must have a value or the load fails"},
+        {"id": "B", "text": "The field is marked as required in Salesforce"},
+        {"id": "C", "text": "A validation error is shown to the user"},
+        {"id": "D", "text": "The field gets a default value if empty"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "Marking a field as required in DataRaptor Load means the operation will fail if that field doesn't have a value in the input data.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q057",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the 'Aggregate' function in OmniScript formulas?",
+      "answers": [
+        {"id": "A", "text": "To combine multiple strings"},
+        {"id": "B", "text": "To perform calculations on arrays of data"},
+        {"id": "C", "text": "To merge JSON objects"},
+        {"id": "D", "text": "To group records by field"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The Aggregate function allows performing calculations like SUM, AVG, MIN, MAX on arrays or collections of data in OmniScript formulas.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q058",
+      "topic": "Integration Procedures",
+      "question_text": "What is the purpose of the 'Delete' action in an Integration Procedure?",
+      "answers": [
+        {"id": "A", "text": "To remove elements from arrays"},
+        {"id": "B", "text": "To delete Salesforce records"},
+        {"id": "C", "text": "To clear cached data"},
+        {"id": "D", "text": "To remove JSON nodes"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The Delete action in Integration Procedures is used to delete Salesforce records based on record IDs provided in the input.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q059",
+      "topic": "FlexCards",
+      "question_text": "How can you customize the styling of a FlexCard?",
+      "answers": [
+        {"id": "A", "text": "Using custom CSS classes"},
+        {"id": "B", "text": "Through the FlexCard designer's styling properties"},
+        {"id": "C", "text": "Using Lightning Design System tokens"},
+        {"id": "D", "text": "All of the above"}
+      ],
+      "correct_answers": ["D"],
+      "question_type": "single_choice",
+      "explanation": "FlexCards can be styled using the designer's built-in styling properties, custom CSS classes, and Lightning Design System tokens for consistent theming.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q060",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the recommended approach for debugging OmniStudio components?",
+      "answers": [
+        {"id": "A", "text": "Use browser developer console and Debug Mode"},
+        {"id": "B", "text": "Use Apex Debug Logs"},
+        {"id": "C", "text": "Use Platform Events"},
+        {"id": "D", "text": "Email error logs"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "The recommended approach is to enable Debug Mode in OmniStudio and use the browser's developer console to view detailed logs and debug information.",
+      "difficulty": "medium"
+    }
+  ]
+}

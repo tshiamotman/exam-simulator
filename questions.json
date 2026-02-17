@@ -1,0 +1,229 @@
+{
+  "questions": [
+    {
+      "id": "Q001",
+      "topic": "DataRaptors",
+      "question_text": "What is the primary purpose of a DataRaptor Extract?",
+      "answers": [
+        {"id": "A", "text": "Update Salesforce records"},
+        {"id": "B", "text": "Read Salesforce data"},
+        {"id": "C", "text": "Orchestrate external services"},
+        {"id": "D", "text": "Render UI components"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Extract is specifically designed to read and retrieve data from Salesforce. It queries objects and fields and can perform data transformations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q002",
+      "topic": "DataRaptors",
+      "question_text": "Which DataRaptor type would you use to update multiple records in a single transaction?",
+      "answers": [
+        {"id": "A", "text": "DataRaptor Extract"},
+        {"id": "B", "text": "DataRaptor Load"},
+        {"id": "C", "text": "DataRaptor Transform"},
+        {"id": "D", "text": "DataRaptor Turbo Extract"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "DataRaptor Load is used for creating or updating Salesforce records. It can handle multiple records in a single operation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q003",
+      "topic": "OmniScripts",
+      "question_text": "What is the purpose of the Set Values element in an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "To display calculated values to the user"},
+        {"id": "B", "text": "To assign values to variables without user interaction"},
+        {"id": "C", "text": "To validate user input"},
+        {"id": "D", "text": "To create new Salesforce records"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Set Values allows you to set variable values programmatically without requiring user input, useful for calculations and data manipulation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q004",
+      "topic": "OmniScripts",
+      "question_text": "Which of the following are valid OmniScript element types? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Step"},
+        {"id": "B", "text": "Type Ahead Block"},
+        {"id": "C", "text": "Remote Action"},
+        {"id": "D", "text": "HTTP Action"}
+      ],
+      "correct_answers": ["A", "B", "D"],
+      "question_type": "multiple_choice",
+      "explanation": "Step, Type Ahead Block, and HTTP Action are all valid OmniScript elements. Remote Action is a Visualforce concept, not an OmniScript element.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q005",
+      "topic": "Integration Procedures",
+      "question_text": "What is the main advantage of using an Integration Procedure instead of directly calling Apex from an OmniScript?",
+      "answers": [
+        {"id": "A", "text": "Better performance"},
+        {"id": "B", "text": "Declarative configuration and reusability"},
+        {"id": "C", "text": "Access to more Salesforce APIs"},
+        {"id": "D", "text": "Automatic error handling"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Integration Procedures provide a declarative way to orchestrate data operations that can be reused across multiple OmniScripts and FlexCards without writing code.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q006",
+      "topic": "Integration Procedures",
+      "question_text": "Which Integration Procedure action would you use to call an external REST API?",
+      "answers": [
+        {"id": "A", "text": "DataRaptor Post Action"},
+        {"id": "B", "text": "HTTP Action"},
+        {"id": "C", "text": "Remote Action"},
+        {"id": "D", "text": "Apex Remote Action"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "HTTP Action is specifically designed to make callouts to external REST APIs from Integration Procedures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q007",
+      "topic": "FlexCards",
+      "question_text": "What is a FlexCard state used for?",
+      "answers": [
+        {"id": "A", "text": "To define different layouts for different screen sizes"},
+        {"id": "B", "text": "To show different content based on conditions"},
+        {"id": "C", "text": "To manage card animations"},
+        {"id": "D", "text": "To control card visibility permissions"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "FlexCard states allow you to show different content, layouts, or actions based on data conditions, providing dynamic card behavior.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q008",
+      "topic": "FlexCards",
+      "question_text": "Which of the following data sources can FlexCards use? (Select all that apply)",
+      "answers": [
+        {"id": "A", "text": "Integration Procedures"},
+        {"id": "B", "text": "DataRaptors"},
+        {"id": "C", "text": "SOQL Queries"},
+        {"id": "D", "text": "Apex Classes"}
+      ],
+      "correct_answers": ["A", "B"],
+      "question_type": "multiple_choice",
+      "explanation": "FlexCards can use Integration Procedures and DataRaptors as data sources. Direct SOQL queries and Apex classes are not supported data sources.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q009",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the purpose of the OmniStudio Designer role?",
+      "answers": [
+        {"id": "A", "text": "To create and modify OmniStudio components"},
+        {"id": "B", "text": "To execute OmniScripts in runtime"},
+        {"id": "C", "text": "To view OmniStudio analytics"},
+        {"id": "D", "text": "To deploy OmniStudio components to production"}
+      ],
+      "correct_answers": ["A"],
+      "question_type": "single_choice",
+      "explanation": "The OmniStudio Designer role grants permissions to create, edit, and configure OmniStudio components like OmniScripts, DataRaptors, and Integration Procedures.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q010",
+      "topic": "OmniStudio Core",
+      "question_text": "Which statement about OmniStudio LWC (Lightning Web Components) is correct?",
+      "answers": [
+        {"id": "A", "text": "OmniScripts can only be deployed as LWC in Experience Cloud"},
+        {"id": "B", "text": "LWC OmniScripts have better performance than standard OmniScripts"},
+        {"id": "C", "text": "FlexCards cannot be deployed as LWC"},
+        {"id": "D", "text": "DataRaptors require LWC deployment to function"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "LWC-based OmniScripts typically have better performance and load times compared to the standard JavaScript-based implementation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q011",
+      "topic": "DataRaptors",
+      "question_text": "What does the 'Null Default Value' checkbox do in a DataRaptor?",
+      "answers": [
+        {"id": "A", "text": "Sets the field to null if no value is provided"},
+        {"id": "B", "text": "Prevents null values from being written"},
+        {"id": "C", "text": "Uses a default value when the source is null"},
+        {"id": "D", "text": "Validates that the field is not null"}
+      ],
+      "correct_answers": ["C"],
+      "question_type": "single_choice",
+      "explanation": "The Null Default Value option allows you to specify a default value to use when the source field is null or empty.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q012",
+      "topic": "OmniScripts",
+      "question_text": "What happens when you set an OmniScript element's 'Conditional View' property?",
+      "answers": [
+        {"id": "A", "text": "The element is permanently hidden"},
+        {"id": "B", "text": "The element is shown/hidden based on a condition"},
+        {"id": "C", "text": "The element requires additional validation"},
+        {"id": "D", "text": "The element's value is conditionally required"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Conditional View allows you to show or hide an element dynamically based on the evaluation of a condition expression.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q013",
+      "topic": "Integration Procedures",
+      "question_text": "In an Integration Procedure, what is the purpose of the Response JSON Path?",
+      "answers": [
+        {"id": "A", "text": "To format the final output structure"},
+        {"id": "B", "text": "To extract specific data from action responses"},
+        {"id": "C", "text": "To validate JSON syntax"},
+        {"id": "D", "text": "To compress response data"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Response JSON Path is used to extract specific portions of data from an action's response and make it available to subsequent actions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q014",
+      "topic": "FlexCards",
+      "question_text": "Which FlexCard action type would you use to navigate to a record page?",
+      "answers": [
+        {"id": "A", "text": "Event Action"},
+        {"id": "B", "text": "Navigation Action"},
+        {"id": "C", "text": "Custom Action"},
+        {"id": "D", "text": "DataRaptor Action"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "Navigation Action is specifically designed to handle navigation to record pages, URLs, and other Salesforce pages.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "Q015",
+      "topic": "OmniStudio Core",
+      "question_text": "What is the recommended way to migrate OmniStudio components between orgs?",
+      "answers": [
+        {"id": "A", "text": "Copy and paste JSON definitions"},
+        {"id": "B", "text": "Use Change Sets or DevOps tools"},
+        {"id": "C", "text": "Export/Import using Excel"},
+        {"id": "D", "text": "Manually recreate in each org"}
+      ],
+      "correct_answers": ["B"],
+      "question_type": "single_choice",
+      "explanation": "The recommended approach is to use Salesforce Change Sets or DevOps tools like Salesforce CLI for proper version control and deployment.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "exam_duration_minutes": 90,
+  "passing_score_percentage": 70.0,
+  "questions_per_exam": 15,
+  "allow_review": true,
+  "randomize_questions": true,
+  "randomize_answers": true,
+  "show_explanations_in_study_mode": true,
+  "weak_area_threshold_percentage": 65.0
+}

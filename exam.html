@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniStudio Certification Exam Simulator</title>
+    
+    <!-- React and Babel for JSX -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        /* Design Philosophy: Professional Certification Aesthetic
+         * Inspired by formal testing centers with modern digital touches
+         * Typography: IBM Plex for technical credibility
+         * Color: Deep navy with electric blue accents - trust meets innovation
+         * Motion: Purposeful, exam-like transitions
+         */
+        
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        
+        :root {
+            --navy-deep: #0a1628;
+            --navy-mid: #1a2942;
+            --navy-light: #2a3f5f;
+            --electric-blue: #00d4ff;
+            --electric-glow: rgba(0, 212, 255, 0.3);
+            --success-green: #00ff88;
+            --warning-amber: #ffaa00;
+            --error-red: #ff4466;
+            --text-primary: #e8f1ff;
+            --text-secondary: #9db4d4;
+            --text-muted: #6b8099;
+            --bg-exam: #0d1b2e;
+            --border-color: rgba(0, 212, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--navy-deep) 0%, var(--bg-exam) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .app-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styling */
+        .exam-header {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exam-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--success-green));
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .exam-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--electric-blue);
+            letter-spacing: -0.5px;
+        }
+        
+        .exam-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        
+        .timer-display {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--electric-blue);
+            text-align: right;
+            min-width: 140px;
+            position: relative;
+        }
+        
+        .timer-display.warning {
+            color: var(--warning-amber);
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        .timer-display.critical {
+            color: var(--error-red);
+            animation: pulse 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .timer-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        
+        /* Main Exam Area */
+        .exam-body {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        /* Question Navigator */
+        .question-navigator {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .navigator-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .question-number-btn {
+            aspect-ratio: 1;
+            border: 1px solid var(--border-color);
+            background: var(--navy-light);
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .question-number-btn:hover {
+            border-color: var(--electric-blue);
+            background: var(--navy-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--electric-glow);
+        }
+        
+        .question-number-btn.answered {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--success-green);
+            color: var(--success-green);
+        }
+        
+        .question-number-btn.current {
+            background: var(--electric-blue);
+            border-color: var(--electric-blue);
+            color: var(--navy-deep);
+            font-weight: 600;
+            box-shadow: 0 0 20px var(--electric-glow);
+        }
+        
+        .question-number-btn.bookmarked {
+            position: relative;
+        }
+        
+        .question-number-btn.bookmarked::after {
+            content: '★';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            color: var(--warning-amber);
+            font-size: 10px;
+        }
+        
+        /* Question Card */
+        .question-card {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .question-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .question-topic {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--electric-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--electric-blue);
+        }
+        
+        .question-counter {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .question-counter .current {
+            color: var(--electric-blue);
+            font-weight: 600;
+            font-size: 20px;
+        }
+        
+        .question-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+        
+        .question-hint {
+            background: rgba(255, 170, 0, 0.1);
+            border-left: 3px solid var(--warning-amber);
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        /* Answer Options */
+        .answers-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .answer-option {
+            background: var(--navy-light);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .answer-option:hover {
+            border-color: var(--electric-blue);
+            background: var(--navy-deep);
+            transform: translateX(4px);
+        }
+        
+        .answer-option.selected {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 20px var(--electric-glow);
+        }
+        
+        .answer-option.correct {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--success-green);
+        }
+        
+        .answer-option.incorrect {
+            background: rgba(255, 68, 102, 0.15);
+            border-color: var(--error-red);
+        }
+        
+        .answer-letter {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--electric-blue);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 212, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--electric-blue);
+        }
+        
+        .answer-option.selected .answer-letter {
+            background: var(--electric-blue);
+            color: var(--navy-deep);
+        }
+        
+        .answer-text {
+            font-size: 16px;
+            color: var(--text-primary);
+            flex: 1;
+        }
+        
+        /* Navigation Controls */
+        .exam-controls {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'IBM Plex Sans', sans-serif;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--electric-blue);
+            color: var(--navy-deep);
+            box-shadow: 0 4px 16px var(--electric-glow);
+        }
+        
+        .btn-primary:hover {
+            background: #00f0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px var(--electric-glow);
+        }
+        
+        .btn-secondary {
+            background: var(--navy-light);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--navy-deep);
+            border-color: var(--electric-blue);
+        }
+        
+        .btn-danger {
+            background: rgba(255, 68, 102, 0.2);
+            color: var(--error-red);
+            border: 1px solid var(--error-red);
+        }
+        
+        .btn-danger:hover {
+            background: var(--error-red);
+            color: white;
+        }
+        
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .btn:disabled:hover {
+            transform: none;
+        }
+        
+        /* Progress Bar */
+        .progress-section {
+            margin-top: 16px;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .progress-bar-container {
+            height: 6px;
+            background: var(--navy-deep);
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--electric-blue), var(--success-green));
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--electric-glow);
+        }
+        
+        /* Start Screen */
+        .start-screen {
+            max-width: 800px;
+            margin: 80px auto;
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .start-screen h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--success-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .start-screen p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+        
+        /* Error Screen */
+        .error-screen {
+            max-width: 600px;
+            margin: 100px auto;
+            text-align: center;
+            background: var(--navy-mid);
+            border: 2px solid var(--error-red);
+            border-radius: 12px;
+            padding: 40px;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .error-screen h2 {
+            color: var(--error-red);
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+        
+        .error-screen p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+        
+        .mode-selector {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        
+        .mode-card {
+            background: var(--navy-mid);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .mode-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px var(--electric-glow);
+        }
+        
+        .mode-card.selected {
+            border-color: var(--electric-blue);
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .mode-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--electric-blue);
+        }
+        
+        .mode-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Exam Selector */
+        .exam-selector {
+            margin-bottom: 40px;
+        }
+        
+        .exam-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .exam-card {
+            background: var(--navy-mid);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .exam-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px var(--electric-glow);
+        }
+        
+        .exam-card.selected {
+            border-color: var(--electric-blue);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 20px var(--electric-glow);
+        }
+        
+        .exam-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--electric-blue);
+        }
+        
+        .exam-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .exam-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Results Screen */
+        .results-screen {
+            max-width: 1000px;
+            margin: 40px auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .results-header {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .results-header.passed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--success-green), var(--electric-blue));
+        }
+        
+        .results-header.failed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--error-red);
+        }
+        
+        .results-score {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        
+        .results-score.passed {
+            color: var(--success-green);
+        }
+        
+        .results-score.failed {
+            color: var(--error-red);
+        }
+        
+        .results-status {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .results-details {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-top: 16px;
+        }
+        
+        .topic-performance {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .topic-performance h3 {
+            font-size: 20px;
+            margin-bottom: 24px;
+            color: var(--electric-blue);
+        }
+        
+        .topic-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+        
+        .topic-name {
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+        
+        .topic-stats {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .topic-percentage {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+        
+        .topic-percentage.weak {
+            color: var(--warning-amber);
+        }
+        
+        .topic-percentage.good {
+            color: var(--success-green);
+        }
+        
+        .weak-badge {
+            background: rgba(255, 170, 0, 0.2);
+            color: var(--warning-amber);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            background: var(--navy-mid);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+            height: 300px;
+        }
+        
+        /* Loading State */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            gap: 24px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--electric-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .exam-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .question-navigator {
+                position: relative;
+                top: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mode-selector {
+                grid-template-columns: 1fr;
+            }
+            
+            .exam-controls {
+                flex-direction: column;
+            }
+            
+            .control-group {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // API Configuration
+        const API_BASE = 'http://localhost:8000/api';
+
+        // Utility: Format time
+        const formatTime = (seconds) => {
+            if (seconds === null) return '--:--';
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        };
+
+        // Start Screen Component
+        function StartScreen({ onStart }) {
+            const [exams, setExams] = useState([]);
+            const [selectedExam, setSelectedExam] = useState(null);
+            const [mode, setMode] = useState('exam');
+            const [loading, setLoading] = useState(true);
+            const [error, setError] = useState(null);
+
+            useEffect(() => {
+                const fetchExams = async () => {
+                    try {
+                        setLoading(true);
+                        const response = await fetch(`${API_BASE}/exams`);
+                        const examsList = await response.json();
+                        setExams(examsList);
+                        if (examsList.length > 0) {
+                            setSelectedExam(examsList[0].id);
+                        }
+                    } catch (error) {
+                        console.error('Failed to load exams:', error);
+                        setError('Failed to load available exams');
+                    } finally {
+                        setLoading(false);
+                    }
+                };
+                fetchExams();
+            }, []);
+
+            const handleStart = async () => {
+                if (!selectedExam) {
+                    alert('Please select an exam');
+                    return;
+                }
+                setLoading(true);
+                try {
+                    const response = await fetch(`${API_BASE}/exam/start`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            exam_id: selectedExam,
+                            mode 
+                        })
+                    });
+                    const session = await response.json();
+                    onStart(session);
+                } catch (error) {
+                    console.error('Failed to start exam:', error);
+                    alert('Failed to start exam. Please try again.');
+                    setLoading(false);
+                }
+            };
+
+            if (loading) {
+                return (
+                    <div className="loading">
+                        <div className="spinner"></div>
+                        <p>Loading exams...</p>
+                    </div>
+                );
+            }
+
+            if (error) {
+                return (
+                    <div className="error-screen">
+                        <h2>Error</h2>
+                        <p>{error}</p>
+                    </div>
+                );
+            }
+
+            const currentExam = exams.find(e => e.id === selectedExam);
+
+            return (
+                <div className="start-screen">
+                    <h1>Certification Exam Simulator</h1>
+                    <p>Select an exam to begin</p>
+                    
+                    <div className="exam-selector">
+                        <div className="exam-list">
+                            {exams.map(exam => (
+                                <div 
+                                    key={exam.id}
+                                    className={`exam-card ${selectedExam === exam.id ? 'selected' : ''}`}
+                                    onClick={() => setSelectedExam(exam.id)}
+                                >
+                                    <h3>{exam.name}</h3>
+                                    <p className="exam-description">{exam.description}</p>
+                                    <div className="exam-info">
+                                        <span>📋 {exam.total_questions} questions</span>
+                                        <span>⏱️ {exam.duration_minutes} minutes</span>
+                                        <span>✅ {exam.passing_score}% to pass</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {currentExam && (
+                        <>
+                            <h2 style={{marginTop: '40px', marginBottom: '20px'}}>Select Mode</h2>
+                            <div className="mode-selector">
+                                <div 
+                                    className={`mode-card ${mode === 'exam' ? 'selected' : ''}`}
+                                    onClick={() => setMode('exam')}
+                                >
+                                    <h3>🎯 Exam Mode</h3>
+                                    <p>Timed simulation with real exam conditions. No hints, no explanations until the end.</p>
+                                </div>
+                                <div 
+                                    className={`mode-card ${mode === 'study' ? 'selected' : ''}`}
+                                    onClick={() => setMode('study')}
+                                >
+                                    <h3>📚 Study Mode</h3>
+                                    <p>Untimed practice with immediate feedback and detailed explanations for learning.</p>
+                                </div>
+                            </div>
+                            
+                            <button className="btn btn-primary" onClick={handleStart}>
+                                Start {mode === 'exam' ? 'Exam' : 'Study Session'}
+                            </button>
+                        </>
+                    )}
+                </div>
+            );
+        }
+
+        // Timer Component
+        function Timer({ sessionId, mode }) {
+            const [remainingSeconds, setRemainingSeconds] = useState(null);
+
+            useEffect(() => {
+                if (mode !== 'exam') return;
+
+                const fetchTime = async () => {
+                    try {
+                        const response = await fetch(`${API_BASE}/exam/${sessionId}/question`);
+                        const data = await response.json();
+                        if (data.remaining_time_seconds !== null) {
+                            setRemainingSeconds(data.remaining_time_seconds);
+                        }
+                    } catch (error) {
+                        console.error('Failed to fetch time:', error);
+                    }
+                };
+
+                fetchTime();
+                const interval = setInterval(fetchTime, 1000);
+
+                return () => clearInterval(interval);
+            }, [sessionId, mode]);
+
+            if (mode !== 'exam') return null;
+
+            const getTimerClass = () => {
+                if (remainingSeconds === null) return '';
+                if (remainingSeconds < 300) return 'critical'; // 5 minutes
+                if (remainingSeconds < 600) return 'warning'; // 10 minutes
+                return '';
+            };
+
+            return (
+                <div>
+                    <div className="timer-label">Time Remaining</div>
+                    <div className={`timer-display ${getTimerClass()}`}>
+                        {formatTime(remainingSeconds)}
+                    </div>
+                </div>
+            );
+        }
+
+        // Question Navigator Component
+        function QuestionNavigator({ session, currentIndex, onNavigate }) {
+            const answeredSet = new Set(session.user_answers.map(a => a.question_id));
+            const bookmarkedSet = new Set(
+                session.user_answers.filter(a => a.bookmarked).map(a => a.question_id)
+            );
+
+            return (
+                <div className="question-navigator">
+                    <div className="navigator-title">Questions</div>
+                    <div className="question-grid">
+                        {session.questions.map((q, index) => {
+                            const isAnswered = answeredSet.has(q.id);
+                            const isCurrent = index === currentIndex;
+                            const isBookmarked = bookmarkedSet.has(q.id);
+                            
+                            return (
+                                <button
+                                    key={q.id}
+                                    className={`question-number-btn 
+                                        ${isAnswered ? 'answered' : ''} 
+                                        ${isCurrent ? 'current' : ''}
+                                        ${isBookmarked ? 'bookmarked' : ''}`}
+                                    onClick={() => onNavigate(index)}
+                                >
+                                    {index + 1}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            );
+        }
+
+        // Question Card Component
+        function QuestionCard({ session, questionData, onAnswerSelect, onBookmarkToggle }) {
+            const { question, question_number, total_questions, user_answer } = questionData;
+            const selectedAnswers = user_answer?.selected_answers || [];
+            const isBookmarked = user_answer?.bookmarked || false;
+
+            const handleAnswerClick = (answerId) => {
+                let newSelection;
+                
+                if (question.question_type === 'single_choice') {
+                    newSelection = [answerId];
+                } else {
+                    // Multiple choice
+                    if (selectedAnswers.includes(answerId)) {
+                        newSelection = selectedAnswers.filter(id => id !== answerId);
+                    } else {
+                        newSelection = [...selectedAnswers, answerId];
+                    }
+                }
+                
+                onAnswerSelect(question.id, newSelection, isBookmarked);
+            };
+
+            return (
+                <div className="question-card">
+                    <div className="question-meta">
+                        <span className="question-topic">{question.topic}</span>
+                        <span className="question-counter">
+                            <span className="current">{question_number}</span> / {total_questions}
+                        </span>
+                    </div>
+
+                    {question.question_type === 'multiple_choice' && (
+                        <div className="question-hint">
+                            ℹ️ Select all that apply
+                        </div>
+                    )}
+
+                    <div className="question-text">{question.question_text}</div>
+
+                    <ul className="answers-list">
+                        {question.answers.map(answer => (
+                            <li
+                                key={answer.id}
+                                className={`answer-option ${
+                                    selectedAnswers.includes(answer.id) ? 'selected' : ''
+                                }`}
+                                onClick={() => handleAnswerClick(answer.id)}
+                            >
+                                <div className="answer-letter">{answer.id}</div>
+                                <div className="answer-text">{answer.text}</div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        // Exam Screen Component
+        function ExamScreen({ session: initialSession, onSubmit }) {
+            const [session, setSession] = useState(initialSession);
+            const [currentQuestion, setCurrentQuestion] = useState(null);
+            const [loading, setLoading] = useState(false);
+
+            const fetchCurrentQuestion = async () => {
+                try {
+                    const response = await fetch(`${API_BASE}/exam/${session.session_id}/question`);
+                    const data = await response.json();
+                    setCurrentQuestion(data);
+                } catch (error) {
+                    console.error('Failed to fetch question:', error);
+                }
+            };
+
+            const fetchSession = async () => {
+                try {
+                    const response = await fetch(`${API_BASE}/exam/${session.session_id}`);
+                    const updatedSession = await response.json();
+                    setSession(updatedSession);
+                } catch (error) {
+                    console.error('Failed to fetch session:', error);
+                }
+            };
+
+            useEffect(() => {
+                fetchCurrentQuestion();
+            }, [session.current_question_index]);
+
+            const handleAnswerSelect = async (questionId, selectedAnswers, bookmarked) => {
+                try {
+                    await fetch(`${API_BASE}/exam/${session.session_id}/answer`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            session_id: session.session_id,
+                            question_id: questionId,
+                            selected_answers: selectedAnswers,
+                            bookmarked
+                        })
+                    });
+                    
+                    await fetchSession();
+                    await fetchCurrentQuestion();
+                } catch (error) {
+                    console.error('Failed to submit answer:', error);
+                }
+            };
+
+            const handleNavigate = async (direction) => {
+                try {
+                    const response = await fetch(
+                        `${API_BASE}/exam/${session.session_id}/navigate/${direction}`,
+                        { method: 'POST' }
+                    );
+                    const data = await response.json();
+                    await fetchSession();
+                } catch (error) {
+                    console.error('Failed to navigate:', error);
+                }
+            };
+
+            const handleJumpTo = async (index) => {
+                try {
+                    await fetch(
+                        `${API_BASE}/exam/${session.session_id}/jump/${index + 1}`,
+                        { method: 'POST' }
+                    );
+                    await fetchSession();
+                } catch (error) {
+                    console.error('Failed to jump to question:', error);
+                }
+            };
+
+            const handleSubmitExam = async () => {
+                if (!confirm('Are you sure you want to submit your exam?')) return;
+                
+                setLoading(true);
+                try {
+                    const response = await fetch(`${API_BASE}/exam/${session.session_id}/submit`, {
+                        method: 'POST'
+                    });
+                    const result = await response.json();
+                    onSubmit(result);
+                } catch (error) {
+                    console.error('Failed to submit exam:', error);
+                    alert('Failed to submit exam. Please try again.');
+                    setLoading(false);
+                }
+            };
+
+            if (loading) {
+                return (
+                    <div className="loading">
+                        <div className="spinner"></div>
+                        <p>Calculating your results...</p>
+                    </div>
+                );
+            }
+
+            if (!currentQuestion) {
+                return (
+                    <div className="loading">
+                        <div className="spinner"></div>
+                        <p>Loading question...</p>
+                    </div>
+                );
+            }
+
+            const progress = (session.user_answers.length / session.questions.length) * 100;
+            const canGoBack = session.current_question_index > 0;
+            const canGoForward = session.current_question_index < session.questions.length - 1;
+
+            return (
+                <>
+                    <div className="exam-header">
+                        <div className="header-content">
+                            <div>
+                                <div className="exam-title">
+                                    {session.mode === 'exam' ? 'Exam Mode' : 'Study Mode'}
+                                </div>
+                                <div className="exam-subtitle">
+                                    OmniStudio Developer Certification
+                                </div>
+                            </div>
+                            <Timer sessionId={session.session_id} mode={session.mode} />
+                        </div>
+                    </div>
+
+                    <div className="exam-body">
+                        <QuestionNavigator 
+                            session={session} 
+                            currentIndex={session.current_question_index}
+                            onNavigate={handleJumpTo}
+                        />
+                        
+                        <QuestionCard 
+                            session={session}
+                            questionData={currentQuestion}
+                            onAnswerSelect={handleAnswerSelect}
+                            onBookmarkToggle={() => {}}
+                        />
+                    </div>
+
+                    <div className="exam-controls">
+                        <div className="control-group">
+                            <button 
+                                className="btn btn-secondary"
+                                onClick={() => handleNavigate('previous')}
+                                disabled={!canGoBack}
+                            >
+                                ← Previous
+                            </button>
+                            <button 
+                                className="btn btn-secondary"
+                                onClick={() => handleNavigate('next')}
+                                disabled={!canGoForward}
+                            >
+                                Next →
+                            </button>
+                        </div>
+
+                        <div className="control-group">
+                            <button 
+                                className="btn btn-danger"
+                                onClick={handleSubmitExam}
+                            >
+                                Submit Exam
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="exam-controls">
+                        <div className="progress-section" style={{width: '100%'}}>
+                            <div className="progress-label">
+                                <span>Progress</span>
+                                <span>{session.user_answers.length} / {session.questions.length} answered</span>
+                            </div>
+                            <div className="progress-bar-container">
+                                <div className="progress-bar-fill" style={{width: `${progress}%`}}></div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            );
+        }
+
+        // Results Screen Component
+        function ResultsScreen({ result, onRestart }) {
+            const chartRef = useRef(null);
+            const chartInstanceRef = useRef(null);
+
+            useEffect(() => {
+                if (chartRef.current && window.Chart) {
+                    // Destroy existing chart if any
+                    if (chartInstanceRef.current) {
+                        chartInstanceRef.current.destroy();
+                    }
+
+                    const ctx = chartRef.current.getContext('2d');
+                    chartInstanceRef.current = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: result.topic_performance.map(t => t.topic),
+                            datasets: [{
+                                label: 'Performance %',
+                                data: result.topic_performance.map(t => t.percentage),
+                                backgroundColor: result.topic_performance.map(t => 
+                                    t.is_weak_area ? 'rgba(255, 170, 0, 0.5)' : 'rgba(0, 255, 136, 0.5)'
+                                ),
+                                borderColor: result.topic_performance.map(t => 
+                                    t.is_weak_area ? '#ffaa00' : '#00ff88'
+                                ),
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100,
+                                    ticks: { color: '#9db4d4' },
+                                    grid: { color: 'rgba(0, 212, 255, 0.1)' }
+                                },
+                                x: {
+                                    ticks: { color: '#9db4d4' },
+                                    grid: { color: 'rgba(0, 212, 255, 0.1)' }
+                                }
+                            },
+                            plugins: {
+                                legend: { display: false }
+                            }
+                        }
+                    });
+                }
+
+                return () => {
+                    if (chartInstanceRef.current) {
+                        chartInstanceRef.current.destroy();
+                    }
+                };
+            }, [result]);
+
+            return (
+                <div className="results-screen">
+                    <div className={`results-header ${result.passed ? 'passed' : 'failed'}`}>
+                        <div className={`results-score ${result.passed ? 'passed' : 'failed'}`}>
+                            {result.score_percentage}%
+                        </div>
+                        <div className={`results-status ${result.passed ? 'passed' : 'failed'}`}>
+                            {result.passed ? '✓ PASSED' : '✗ FAILED'}
+                        </div>
+                        <div className="results-details">
+                            {result.correct_answers} / {result.total_questions} correct answers
+                            {result.time_taken_minutes && ` • Completed in ${result.time_taken_minutes} minutes`}
+                        </div>
+                    </div>
+
+                    <div className="chart-container">
+                        <canvas ref={chartRef}></canvas>
+                    </div>
+
+                    <div className="topic-performance">
+                        <h3>Performance by Topic</h3>
+                        {result.topic_performance.map(topic => (
+                            <div key={topic.topic} className="topic-item">
+                                <div className="topic-name">{topic.topic}</div>
+                                <div className="topic-stats">
+                                    <span style={{color: 'var(--text-muted)', fontSize: '14px'}}>
+                                        {topic.correct_answers}/{topic.total_questions}
+                                    </span>
+                                    <span className={`topic-percentage ${topic.is_weak_area ? 'weak' : 'good'}`}>
+                                        {topic.percentage}%
+                                    </span>
+                                    {topic.is_weak_area && <span className="weak-badge">Focus Area</span>}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {result.weak_areas.length > 0 && (
+                        <div className="topic-performance">
+                            <h3>⚠️ Recommended Study Areas</h3>
+                            <p style={{color: 'var(--text-secondary)', marginBottom: '16px'}}>
+                                Focus your study efforts on these topics to improve your score:
+                            </p>
+                            <ul style={{listStyle: 'none', padding: 0}}>
+                                {result.weak_areas.map(area => (
+                                    <li key={area} style={{
+                                        padding: '12px 16px',
+                                        background: 'rgba(255, 170, 0, 0.1)',
+                                        borderLeft: '3px solid var(--warning-amber)',
+                                        marginBottom: '8px',
+                                        borderRadius: '4px'
+                                    }}>
+                                        {area}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
+                    <div style={{textAlign: 'center', marginTop: '32px'}}>
+                        <button className="btn btn-primary" onClick={onRestart}>
+                            Take Another Practice Exam
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            const [screen, setScreen] = useState('start');
+            const [session, setSession] = useState(null);
+            const [result, setResult] = useState(null);
+
+            const handleStart = (newSession) => {
+                setSession(newSession);
+                setScreen('exam');
+            };
+
+            const handleSubmit = (examResult) => {
+                setResult(examResult);
+                setScreen('results');
+            };
+
+            const handleRestart = () => {
+                setSession(null);
+                setResult(null);
+                setScreen('start');
+            };
+
+            return (
+                <div className="app-container">
+                    {screen === 'start' && <StartScreen onStart={handleStart} />}
+                    {screen === 'exam' && <ExamScreen session={session} onSubmit={handleSubmit} />}
+                    {screen === 'results' && <ResultsScreen result={result} onRestart={handleRestart} />}
+                </div>
+            );
+        }
+
+        // Render the app
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

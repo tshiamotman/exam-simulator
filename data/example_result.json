@@ -1,0 +1,73 @@
+{
+  "session_id": "a3b2c1d4-e5f6-7890-abcd-ef1234567890",
+  "exam_mode": "exam",
+  "total_questions": 15,
+  "correct_answers": 11,
+  "score_percentage": 73.3,
+  "passed": true,
+  "time_taken_minutes": 45,
+  "completion_date": "2024-02-11T15:30:00",
+  "topic_performance": [
+    {
+      "topic": "Integration Procedures",
+      "total_questions": 3,
+      "correct_answers": 1,
+      "percentage": 33.3,
+      "is_weak_area": true
+    },
+    {
+      "topic": "OmniScripts",
+      "total_questions": 4,
+      "correct_answers": 3,
+      "percentage": 75.0,
+      "is_weak_area": false
+    },
+    {
+      "topic": "DataRaptors",
+      "total_questions": 4,
+      "correct_answers": 4,
+      "percentage": 100.0,
+      "is_weak_area": false
+    },
+    {
+      "topic": "FlexCards",
+      "total_questions": 2,
+      "correct_answers": 2,
+      "percentage": 100.0,
+      "is_weak_area": false
+    },
+    {
+      "topic": "OmniStudio Core",
+      "total_questions": 2,
+      "correct_answers": 1,
+      "percentage": 50.0,
+      "is_weak_area": true
+    }
+  ],
+  "weak_areas": [
+    "Integration Procedures",
+    "OmniStudio Core"
+  ],
+  "question_details": [
+    {
+      "question_id": "Q001",
+      "question_text": "What is the primary purpose of a DataRaptor Extract?",
+      "topic": "DataRaptors",
+      "user_answers": ["B"],
+      "correct_answers": ["B"],
+      "is_correct": true,
+      "explanation": "DataRaptor Extract is specifically designed to read and retrieve data from Salesforce.",
+      "bookmarked": false
+    },
+    {
+      "question_id": "Q005",
+      "question_text": "What is the main advantage of using an Integration Procedure?",
+      "topic": "Integration Procedures",
+      "user_answers": ["A"],
+      "correct_answers": ["B"],
+      "is_correct": false,
+      "explanation": "Integration Procedures provide a declarative way to orchestrate data operations.",
+      "bookmarked": true
+    }
+  ]
+}

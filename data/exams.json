@@ -1,0 +1,62 @@
+{
+  "exams": [
+    {
+      "id": "omnistudio-dev",
+      "name": "OmniStudio Developer Certification",
+      "description": "Comprehensive exam for OmniStudio Developer Certification",
+      "questions_file": "data/questions (1).json",
+      "duration_minutes": 90,
+      "passing_score": 70.0,
+      "total_questions": 60,
+      "topics": [
+        "DataRaptors",
+        "OmniScripts",
+        "Integration Procedures",
+        "FlexCards",
+        "OmniStudio Core"
+      ]
+    },
+    {
+      "id": "mvssa-intermediate-p1",
+      "name": "MVSSA Intermediate - Paper 1",
+      "description": "MVSSA Intermediate level certification exam - Paper 1",
+      "questions_file": "data/mvssa_intermediate_paper1.json",
+      "duration_minutes": 75,
+      "passing_score": 70.0,
+      "total_questions": 50,
+      "topics": [
+        "Advanced Development",
+        "Security",
+        "Performance"
+      ]
+    },
+    {
+      "id": "mvssa-intermediate-p2",
+      "name": "MVSSA Intermediate - Paper 2",
+      "description": "MVSSA Intermediate level certification exam - Paper 2",
+      "questions_file": "data/mvssa_intermediate_paper2.json",
+      "duration_minutes": 75,
+      "passing_score": 70.0,
+      "total_questions": 50,
+      "topics": [
+        "Architecture",
+        "Integration",
+        "Best Practices"
+      ]
+    },
+    {
+      "id": "mine-env",
+      "name": "Mine Environment Assessment",
+      "description": "Mine environment technical assessment",
+      "questions_file": "data/mine_env_questions.json",
+      "duration_minutes": 60,
+      "passing_score": 65.0,
+      "total_questions": 40,
+      "topics": [
+        "Mining Systems",
+        "Safety",
+        "Operations"
+      ]
+    }
+  ]
+}

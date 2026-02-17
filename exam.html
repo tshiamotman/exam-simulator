@@ -852,9 +852,12 @@
                         setLoading(true);
                         const response = await fetch(`${API_BASE}/exams`);
                         const examsList = await response.json();
+                        console.log('Fetched exams:', examsList);
                         setExams(examsList);
-                        if (examsList.length > 0) {
-                            setSelectedExam(examsList[0].id);
+                        if (examsList && examsList.length > 0) {
+                            const firstExamId = examsList[0].id;
+                            console.log('Setting first exam ID:', firstExamId);
+                            setSelectedExam(firstExamId);
                         }
                     } catch (error) {
                         console.error('Failed to load exams:', error);
@@ -908,7 +911,7 @@
                 );
             }
 
-            const currentExam = exams.find(e => e.id === selectedExam);
+            const currentExam = selectedExam ? exams.find(e => (e.id || e['id']) === selectedExam) : null;
 
             return (
                 <div className="start-screen">
@@ -917,11 +920,20 @@
                     
                     <div className="exam-selector">
                         <div className="exam-list">
-                            {exams.map(exam => (
+                            {exams.map((exam, index) => {
+                                const examId = exam.id || exam['id'];  // Defensive fallback
+                                return (
                                 <div 
-                                    key={exam.id}
-                                    className={`exam-card ${selectedExam === exam.id ? 'selected' : ''}`}
-                                    onClick={() => setSelectedExam(exam.id)}
+                                    key={examId || index}
+                                    className={`exam-card ${selectedExam === examId ? 'selected' : ''}`}
+                                    onClick={() => {
+                                        console.log('Clicked exam:', exam, 'ID:', examId);
+                                        if (examId) {
+                                            setSelectedExam(examId);
+                                        } else {
+                                            console.error('Exam object missing id field:', exam);
+                                        }
+                                    }}
                                 >
                                     <h3>{exam.name}</h3>
                                     <p className="exam-description">{exam.description}</p>
@@ -931,7 +943,8 @@
                                         <span>✅ {exam.passing_score}% to pass</span>
                                     </div>
                                 </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 

@@ -13,7 +13,8 @@
       "correct_answers": ["B"],
       "question_type": "single_choice",
       "explanation": "DataRaptor Extract is specifically designed to read and retrieve data from Salesforce. It queries objects and fields and can perform data transformations.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "source": "May 2025 Int Paper 1 - Q1.4"
     },
     {
       "id": "Q002",

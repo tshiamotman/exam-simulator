@@ -54,14 +54,16 @@ async def get_config() -> ExamConfig:
 
 
 @app.get("/api/exams")
-async def get_exams() -> List[Exam]:
+async def get_exams() -> List[dict]:
     """
     Get list of all available exams.
     
     Returns:
-        List of Exam objects
+        List of exam dictionaries
     """
-    return engine.get_exams()
+    exams = engine.get_exams()
+    # Explicitly convert to dict to ensure proper serialization
+    return [exam.dict() for exam in exams]
 
 
 @app.get("/api/exams/{exam_id}")

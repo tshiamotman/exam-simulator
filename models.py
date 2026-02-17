@@ -41,7 +41,7 @@ class Answer(BaseModel):
 class Question(BaseModel):
     """Exam question model."""
     id: str = Field(..., description="Unique question identifier")
-    topic: Topic = Field(..., description="Question topic/category")
+    topic: str = Field(..., description="Question topic/category")
     question_text: str = Field(..., description="The question itself")
     answers: List[Answer] = Field(..., min_items=2, description="Answer options")
     correct_answers: List[str] = Field(..., min_items=1, description="Correct answer IDs")

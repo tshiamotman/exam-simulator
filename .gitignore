@@ -206,3 +206,10 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 .ssh
+
+# Environment and Configuration
+.env
+.env.local
+config.local.js
+.env.production.local
+.env.staging.local

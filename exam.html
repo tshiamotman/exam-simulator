@@ -13,6 +13,10 @@
     <!-- Chart.js for analytics -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
+    <!-- Load configuration -->
+    <script src="config.js"></script>
+    <script src="config.local.js" onerror="console.log('Using default configuration (config.local.js not found)');"></script>
+    
     <style>
         /* Design Philosophy: Professional Certification Aesthetic
          * Inspired by formal testing centers with modern digital touches
@@ -827,8 +831,10 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
 
-        // API Configuration
-        const API_BASE = 'http://localhost:8000/api';
+        // API Configuration (loaded from config.js)
+        // Use the API_BASE variable that was defined in config.js
+        // If config.js is not loaded, fall back to localhost
+        const API_BASE = typeof API_BASE !== 'undefined' ? API_BASE : 'http://localhost:8000/api';
 
         // Utility: Format time
         const formatTime = (seconds) => {
